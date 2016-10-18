@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jqWidget - Color</title>
+
+    <link rel="stylesheet" href="styles/jqx.base.css"/>
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jqx-all.js"></script>
+
+    <script>
+        var defaultColor = "257D91";
+
+        $(function () {
+            $("#colorPicker").jqxColorPicker({ color: defaultColor, colorMode: 'hue', width: 220, height: 220});
+        
+            $("#dropDownButton").jqxDropDownButton({ width: 150, height: 22});
+            $('#dropDownButton').val("#" + defaultColor);
+            $('#dropDownButton').css('background-color', "#" + defaultColor);
+        
+            $("#colorPicker").on('colorchange', function (event) {
+                $('#dropDownButton').val("#" + event.args.color.hex);
+                $('#dropDownButton').css('background-color', "#" + event.args.color.hex);
+            });
+        });
+    </script>           
+</head>
+
+<body>
+    <div style="margin: 3px; float: left;" id="dropDownButton">
+        <div style="padding: 3px;">
+            <div id="colorPicker"></div>
+        </div>
+    </div>
+</body>
+</html> 

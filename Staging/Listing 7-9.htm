@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    
+	<script>
+        $(function() {
+            $("#txtName").on("change", function() {
+				$("#message").html("Name is changed to: " + $("#txtName").val());
+            });
+           
+            $("#btnChangeName").click(function() {
+                $("#txtName").val("John Smith");
+            });
+           
+            $("#btnChangeNameTriggerEvent").click(function() {
+                $("#txtName").val("Jane Smith");
+                $("#txtName").trigger("change");
+            });           
+        });
+	</script>
+</head>
+
+<body>
+    Name: <input id="txtName" type="text"><br><br>
+
+    <button id="btnChangeName">Change Name</button>
+	<button id="btnChangeNameTriggerEvent">Change Name & Trigger Event</button><br><br>
+
+    <div id="message"></div>
+</body>
+</html>

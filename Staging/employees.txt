@@ -1,0 +1,6 @@
+Employee Name, Department, Salary
+Jane Smith, Marketing, $95000
+John Smith, Technology, $90000
+Brian Adam, Sales, $72000
+Mary Jones, Support, $60000
+Michael Jefferson, Technology, $85000

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    
+	<style>
+        ul {
+            width:150px;
+        }
+    </style>
+    
+	<script>
+        $(function () {
+            $("#btnFirstChild").click(function () {
+				$("li:first-child").css("background-color", "yellow");
+			});
+        
+			$("#btnNthChild").click(function () {
+				$("li:nth-child(3)").css("background-color", "yellow");
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>item 3</li>
+        <li>item 4</li>
+    </ul>
+    <ul>
+        <li>Item A</li>
+        <li>Item B</li>
+        <li>Item C</li>
+        <li>Item D</li>
+    </ul>
+    
+	<input id="btnFirstChild" type="button" value="First Child"><br><br>
+    <input id="btnNthChild" type="button" value="3rd Child">
+</body>
+</html>

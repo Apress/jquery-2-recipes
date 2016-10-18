@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <script>
+              function testFunc() {
+           try {
+              // some code
+              displayMessage("My Message");
+           } 
+           catch (errorMsg) {
+             throw "Programming error occurred.";
+           }
+              }
+
+              try {
+                  testFunc();
+       } catch (err) {
+           alert(err);
+       }
+    </script>
+</head>
+
+<body></body>
+</html>

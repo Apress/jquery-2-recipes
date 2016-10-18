@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jqWidget - Grid</title>
+
+    <link rel="stylesheet" href="styles/jqx.base.css"/>
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+	<script src="scripts/jqx-all.js"></script>
+
+	<script>
+		var employeeData = { 
+			"employees": [
+				{"employeeId":1, "managerId": 0, "name":"Mark Johnson", "department":"Finance", "salary":"$285,000"},
+				{"employeeId":2, "managerId": 1, "name":"Jane Smith", "department":"Marketing", "salary":"$95,000"},
+				{"employeeId":3, "managerId": 1, "name":"John Smith", "department":"Technology", "salary":"$90,000"},
+				{"employeeId":4, "managerId": 1, "name":"Brian Adam", "department":"Sales", "salary":"$72,000"},
+				{"employeeId":5, "managerId": 1, "name":"Mary Jones", "department":"Support", "salary":"$60,000"},
+				{"employeeId":6, "managerId": 3, "name":"Michael Jefferson", "department":"Technology", "salary":"$85,000"}
+			]
+		}
+
+        $(function () {
+            var source = {
+                datatype: "json",
+                datafields: [
+                    { name: 'name', type: 'string' },
+                    { name: 'department', type: 'string' },
+                    { name: 'salary', type: 'string' }
+                ],
+                id: 'employeeId',
+                localdata: employeeData
+            };
+
+            var dataAdapter = new $.jqx.dataAdapter(
+                source, {
+                    loadError: function(jqXHR, status, errorMsg) {
+					alert(status + ": " + errorMsg);
+                },
+
+                loadComplete: function() {
+                    // tasks to be performed on successful data retrieval
+                }
+            });
+
+            $("#employeeGrid").jqxGrid({
+                width: 375,
+                source: dataAdapter,
+                columnsresize: true,
+                columns: [
+                    { text: 'Name', datafield: 'name', width: 150 },
+                    { text: 'Department', datafield: 'department', width: 125 },
+                    { text: 'Salary', datafield: 'salary', width: 100, align: 'right', cellsalign: 'right' }
+                ]
+            });            
+        });
+    </script>
+</head>
+
+<body>
+    <div id='jqxWidget'>
+        <div id="employeeGrid"></div>
+    </div>
+</body>
+</html>

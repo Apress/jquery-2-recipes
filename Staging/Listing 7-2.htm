@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    
+	<script>
+        $(function() {
+            $("#lnkSales").click(function(eventObj) {
+                var message = $(this).prop("tagName") + " is clicked.\n";
+
+                eventObj.preventDefault();
+                message += "Default event handler is prevented...";
+
+                alert(message);
+            });
+
+            $("#lnkMarketing").click(function(eventObj) {
+                var message = $(this).prop("tagName") + " is clicked.\n";
+                message += "Default event handler is NOT prevented...";
+                alert(message);
+            });
+        });
+	</script>
+</head>
+
+<body>
+	Departments:
+    <ul id="listDepartments">
+        <li><a id="lnkSales" href="department.htm">Sales</a></li>
+        <li><a id="lnkMarketing" href="department.htm">Marketing</a></li>
+        <li>Technology</li>
+        <li>Customer Support</li>
+    </ul><br>
+</body>
+</html>

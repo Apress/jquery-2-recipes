@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>HTML5 Form</title>
+   <script src="scripts/jquery-2.1.0.min.js"></script>
+   <style>
+       label {
+          float:left;
+          display:block;
+          width: 75px;
+       }
+   </style>
+      
+   <script>
+       $(function() {
+          $("#personalInfoForm").on("submit", function(eventObj) {
+eventObj.preventDefault();
+      
+// Ajax call to process the form
+alert("Form is being processed...");
+          });
+       });
+   </script>
+</head>
+<body>
+   <form id="personalInfoForm">
+       <strong>Registration Form</strong><br><br>
+       <label>Name:</label><input type="text" required autofocus><br>
+       <label>EMail:</label> 
+       <input type="email" placeholder="myId@company.com"><br>
+       <label>SSN:</label> 
+       <input type="text" pattern="\d{3}-\d{2}-\d{4}" title="999-99-9999"
+             placeholder="999-99-9999" required>
+ 
+       <br><br><input type="submit" value="Register"> 
+   </form>
+</body>
+</html>

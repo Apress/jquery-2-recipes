@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+	<title>HTML5 Anchor</title>
+	<meta charset=utf-8>
+	
+	<script>
+		function changeNewsLink() {
+			var objAnchor = document.getElementById("newsLink");
+            alert(objAnchor.href);
+            objAnchor.href = "http://cnn.com";
+		}
+	</script>
+</head>
+<body onload="changeNewsLink();">
+	<a id="newsLink" href="http://msnbc.com">News</a>
+</body>
+</html>

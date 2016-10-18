@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script src="scripts/jquery-2.1.0.min.js"></script>
+   
+	<style>
+		ul { width:150px; }
+		.highlight { border: 3px dotted red; background-color: yellow; }
+	</style>
+	
+	<script>
+		$(function(){
+			$("#btnTestIt").click(function (){
+				if ($("ul").hasClass("highlight") == true) {
+					$("#classAssociation").prop("innerHTML", "ul tag has the class - 'highlight'");
+				} else {
+					$("#classAssociation").prop("innerHTML", "ul tag doesn't have the class - 'highlight'");
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<strong>Departments:</strong>
+	<ul class="highlight">
+		<li>Marketing</li>
+		<li>Sales</li>
+		<li>Technology</li>
+		<li>Customer Support</li>
+	</ul>
+	
+	<input id="btnTestIt" type="button" value="Test It"><br><br>
+	
+	<div id="classAssociation"></div>
+</body>
+</html>

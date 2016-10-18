@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jqWidget - Menu</title>
+
+    <link rel="stylesheet" href="styles/jqx.base.css"/>
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jqx-all.js"></script>
+      
+    <script>
+        $(function () {
+            // Create Menu
+            $("#jqxMenu").jqxMenu({ width: '150', mode: 'vertical'});
+        });
+    </script>
+</head>
+
+<body>
+    <div id='jqxWidget'>
+        <div id='jqxMenu'>
+            <ul>
+                <li><a href="#">Home</a></li>
+
+                <li>Department
+                    <ul>
+                        <li><a href="#">Search Department</a></li>
+                        <li><a href="#">Add Department</a></li>
+                    </ul>
+                </li>
+
+                <li>Employee
+					<ul>
+                        <li><a href="#">Search Employee</a></li>
+                        <li><a href="#">Add Employee</a></li>
+                    </ul>
+                </li>
+
+                <li>Organization Chart</li>
+                    
+                <li><a href="#">Help</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

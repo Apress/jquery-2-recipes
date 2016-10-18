@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jqWidget - Docking</title>
+
+    <link rel="stylesheet" href="styles/jqx.base.css"/>
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jqx-all.js"></script>
+
+    <script>
+        $(function () {
+            $("#docking").jqxDocking({ width: 250});
+        });
+    </script>
+</head>
+<body>
+    <div id="docking">
+        <div>
+            <div id="technology">
+				<div>Technology</div><div>John Smith<br>Michael Jefferson</div>
+            </div>
+            
+            <div id="finance">
+                <div>Finance</div><div>Mark Johnson</div>
+            </div>
+            
+            <div id="marketing">
+                <div>Marketing</div><div>Jane Smith</div>
+            </div>
+            
+           <div id="sales">
+                <div>Sales</div><div>Brian Adam</div>
+            </div>
+            
+            <div id="support">
+                <div>Support</div><div>Mary Jones</div>
+            </div> 
+        </div>
+    </div>
+</body>
+</html>

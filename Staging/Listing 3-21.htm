@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    
+	<style>
+        div {
+            width: 150px;
+        }
+    </style>
+	
+	<script>
+		$(function(){
+            $("#btnTestIt").click(function () {
+				$("div:has(p, li)").css("background-color", "yellow");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div><p>Test Message</p><b> Have a nice day! </b></div><br>
+    <div>Test 2</div>
+    <div><ul><li>Test 3</li></ul></div>
+    <input id="btnTestIt" type="button" value="Test It">
+</body>
+</html>

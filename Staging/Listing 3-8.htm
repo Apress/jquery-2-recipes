@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    
+	<style>
+        ol {
+            width:350px;
+        }
+    </style>
+    
+	<script>
+        $(function(){
+            $("#btnTestIt").click(function () {
+                $("[id |= 'WEB']").css("background-color", "yellow");
+            });
+        });
+    </script>
+</head>
+<body>
+    <ol>
+        <li id=".NET-01">Windows Phone Recipes</li>
+        <li id=".NET-02">Visual C# 2010 Recipes</li>
+        <li id=".NET-03">UML Applied</li>
+        <li id=".NET-04">Sharepoint 2010 Designer Guide</li>
+        <li id=".NET-05">Pro WPF in C# 2010</li>
+        <li id="WEB-01">Zend Enterprise PHP Patterns</li>
+        <li id="WEB-02">Web Designer's Reference</li>
+        <li id="WEB-03">Practical Ajax Projects with Java</li>
+        <li id="WEB-04">The Definitive Guide to HTML5 WebSocket</li>
+        <li id="WEB-05">The Essential Guide to HTML5 and CSS3</li>
+    </ol>
+	
+    <input id="btnTestIt" type="button" value="Test It">
+</body>
+</html>

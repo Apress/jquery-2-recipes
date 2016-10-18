@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/jquery-ui.min.css">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
+
+    <script>
+		$(function() {
+            $( "#txtAppointmentDate" ).datepicker({
+				dateFormat:"yy-mm-dd",
+				minDate: +5,
+				maxDate: "+2M +15D"
+			});
+		});
+	</script>
+</head>
+<body>
+    <div class="ui-widget">
+        Appointment Date: <input type="text" id="txtAppointmentDate">
+	</div>
+</body>
+</html>     

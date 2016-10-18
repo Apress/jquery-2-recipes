@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script src="scripts/jquery-2.1.0.min.js"></script>
+   
+	<style>
+		.item_0 { background-color: lightyellow; }
+		.item_1 { background-color: lightblue; }
+		.item_2 { background-color: lightgray; }
+		.item_3 { background-color: lightgreen; }
+	</style>
+   
+	<script>
+		$(function(){
+			$("#btnTestIt").click(function () {
+				$("p").unwrap();
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="item_0"><p>This is paragraph 1</p></div>
+	<div class="item_1"><p>This is paragraph 2</p></div>
+	<div class="item_2"><p>This is paragraph 3</p></div>
+	<div class="item_3"><p>This is paragraph 4</p></div>
+	
+	<input id="btnTestIt" type="button" value="Test It">
+</body>
+</html>

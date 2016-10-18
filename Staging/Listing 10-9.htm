@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/jquery-ui.min.css">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
+
+    <style>
+		#photoTabs { width: 800px;}
+    </style>
+
+    <script>
+		$(function() {
+            $("#photoTabs").tabs();
+		});
+	</script>
+</head>
+
+<body>
+    <div class="ui-widget">
+		<div id="photoTabs">
+            <ul>
+				<li><a href="#animalsTab">Animals</a></li>
+				<li><a href="#birdsTab">Birds</a></li>
+				<li><a href="#insectsTab">Insects</a></li>
+				<li><a href="#seaAnimalsTab">Sea Animals</a></li>
+			</ul>
+
+            <div id="animalsTab">
+				<img src="images/Cat.png"/>
+				<img src="images/Dog.png"/>
+				<img src="images/Elephant.png"/>
+				<img src="images/Hippopotamus.png"/>
+				<img src="images/Panda.png"/>
+			</div>
+
+            <div id="birdsTab">
+				<img src="images/Bird1.png"/>
+				<img src="images/Bird2.png"/>
+				<img src="images/Owl.png"/>
+				<img src="images/Penguin1.png"/>
+				<img src="images/Penguin2.png"/>
+            </div>
+
+			<div id="insectsTab">
+				<img src="images/Butterfly1.png"/>
+				<img src="images/Butterfly2.png"/>
+				<img src="images/Butterfly3.png"/>
+				<img src="images/Grasshopper.png"/>
+				<img src="images/LadyBug.png"/>
+			</div>
+
+            <div id="seaAnimalsTab">
+				<img src="images/Fish2.png"/>
+				<img src="images/Dolphin.png"/>
+				<img src="images/Fish1.png"/>
+				<img src="images/JellyFish.png"/>
+				<img src="images/WireShark.png"/>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

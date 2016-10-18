@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+   
+	<script>
+		function displayValues() {
+			var name = document.getElementById("txtName");
+         
+			alert("Attribute value of 'value': " + 
+				name.attributes["value"].value + "\n" +
+				"Property value of 'value': " + name.value); 
+		}
+	</script>
+</head>
+<body>
+    Name: <input id="txtName" type="text" value="Default Value" ><br><br>
+    <input id="btnDisplay" type="button" value="Display Attributes and Properties" onClick="displayValues();">
+</body>
+</html>

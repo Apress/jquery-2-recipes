@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script src="scripts/jquery-2.1.0.min.js"></script>
+      
+	<style>
+		label {
+            float:left;
+            display:block;
+            width: 100px;
+            font-weight: bold;
+        }
+	</style>
+		
+	<script>
+        $(function () {
+            $("input, select, textarea" ).focus(function () {
+                $(this).css("background-color", "yellow");
+            });
+
+            $("input, select, textarea").blur(function () {
+                $(this).css("background-color", "white");
+            });
+        });
+    </script>
+</head>
+<body>
+    <label>Name:</label> <input id="txtName" type="text"><br>
+    <label>Address:</label> <input id="txtAddress" type="text"><br>
+    <label>State:</label>
+        <select><option>IL</option><option>NY</option></select><br>
+    <label>Comments:</label><textarea></textarea><br><br>
+</body>
+</html>

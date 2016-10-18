@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <link rel="stylesheet" href="styles/jquery-ui.min.css">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
+
+    <script>
+		$(function() {
+            $("#btnSubmitPayment").button();
+
+            $("#btnSubmitPayment").click(function () {
+				$("#dialogProcessingStatus").dialog({modal: true}); 
+			});
+		});
+	</script>
+</head>
+<body>
+    <div class="ui-widget">
+		<button id="btnSubmitPayment">Submit Payment</button>
+
+		<div id="dialogProcessingStatus" title="Processing Status" style="display:none">
+            <p>
+				Payment processing is completed. If you have any questions, 
+				please contact us at (877)-555-5555.
+			</p>
+        </div>
+    </div>
+</body>
+</html>

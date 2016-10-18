@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    
+	<script>
+		// Global AJAX events callbacks
+		function ajaxSuccessCallback(eventObj, jqXHR, settingsObj) {
+            $("#status").append("Global event - ajaxSuccess.<br>");
+		}
+
+		function ajaxSendCallback(eventObj, jqXHR, settingsObj) {
+            $("#status").append("Global event - ajaxSend.<br>");
+		}
+
+		function ajaxStartCallback(eventObj) {
+            $("#status").append("Global event - ajaxStart.<br>");
+		}
+
+		function ajaxStopCallback(eventObj) {
+            $("#status").append("Global event - ajaxStop.<br>");
+		}
+
+		function ajaxErrorCallback(eventObj, jqXHR, settingsObj) {
+            $("#status").append("Global event - ajaxError.<br>");
+		}
+
+		function ajaxCompleteCallback(eventObj, jqXHR, settingsObj) {
+            $("#status").append("Global event - ajaxComplete.<br>");
+		}
+
+		// AJAX events callbacks at the request level
+		function requestBeforeSendCallback(jqXHR, settingsObj) {
+            $("#status").append("Request event - beforeSend.<br>");
+		}
+
+		function requestCompleteCallback(jqXHR, status) {
+			$("#status").append("Request event - complete.<br>");
+		}
+
+		function requestDataFilterCallback(returnedData, dataType) {
+            $("#status").append("Request event - dataFilter.<br>");
+		}
+
+		function requestErrorCallback(jqXHR, status, errorMessage) {
+            $("#status").append("Request event - error.<br>");
+		}
+
+		function requestSuccessCallback(returnedData, status, jqXHR) {
+            $("#status").append("Request event - success.<br>");
+		}
+
+		$(function () {
+            $(document).on("ajaxSend", ajaxSendCallback);
+            $(document).on("ajaxSuccess", ajaxSuccessCallback);
+            $(document).on("ajaxError", ajaxErrorCallback);
+            $(document).on("ajaxComplete", ajaxCompleteCallback);
+            $(document).on("ajaxStart", ajaxStartCallback);
+            $(document).on("ajaxStop", ajaxStopCallback);
+
+            $("#btnSuccess").click(function () {
+            $("#status").empty();
+
+            $.ajax(
+                {
+                    type: "GET",
+                    url: "testMessage.txt",
+                    beforeSend: requestBeforeSendCallback,
+                    complete: requestCompleteCallback,
+                    dataFilter: requestDataFilterCallback,
+                    error: requestErrorCallback,
+                    success: requestSuccessCallback,
+                    data: null,
+                    dataType: "text"
+				});
+            });
+
+            $("#btnFailed").click(function () {
+				$("#status").empty();
+
+				$.ajax(
+				  {
+					type: "GET",
+                    url: "incorrect.txt",
+                    beforeSend: requestBeforeSendCallback,
+                    complete: requestCompleteCallback,
+                    dataFilter: requestDataFilterCallback,
+                    error: requestErrorCallback,
+                    success: requestSuccessCallback,
+                    data: null,
+                    dataType: "text"
+				});
+            });
+		});
+	</script>
+</head>
+
+<body>
+    <button id="btnSuccess">Start Successful Ajax Call</button>
+    <button id="btnFailed">Start Unsuccessful Ajax Call</button><br><br>
+	
+    <div id="status"></div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    
+	<style>
+		.headerRow {
+			font-family: Verdana;
+            font-weight: bold
+        }
+        .evenRow {
+            font-family: Verdana;
+            font-style: normal;
+        }
+        .oddRow {
+            font-family: Verdana;
+            font-style: italic
+        }
+    </style>
+	  
+    <script>
+        $(function() {
+            $("#btnTestIt").click(function () {
+                $(".evenRow").css("background-color", "lightyellow");
+                $(".oddRow").css("background-color", "lightblue");
+            });
+        });
+    </script>
+</head>
+<body>
+    <table style="border:0px" id="tblEmployee">
+        <tr class="headerRow">
+			<td>Employee Name</td><td>Department</td><td>Salary</td>
+        </tr>
+        <tr class="oddRow">
+			<td>Jane Smith</td><td>Marketing</td><td>$95,000</td>
+        </tr> 
+        <tr class="evenRow">
+            <td>John Smith</td><td>Technology</td><td>$90,000</td>
+        </tr> 
+        <tr class="oddRow">
+            <td>Brian Adam</td><td>Sales</td><td>$72,000</td>
+        </tr> 
+        <tr class="evenRow">
+            <td>Mary Jones</td><td>Support</td><td>$60,000</td>
+        </tr> 
+        <tr class="oddRow">
+            <td>Michael Jefferson</td><td>Technology</td><td>$85,000</td>
+        </tr>
+	</table>
+    
+	<input id="btnTestIt" type="button" value="Test It">
+</body>
+</html>

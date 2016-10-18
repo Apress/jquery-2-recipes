@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jqWidget - Panel</title>
+
+    <link rel="stylesheet" href="styles/jqx.base.css"/>
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jqx-all.js"></script>
+
+    <script>
+        $(function () {
+            $("#departments").jqxPanel({ width: 250, height: 250});
+        });
+    </script>
+</head>
+
+<body>
+    <div id='departments' style="font-size: 13px; font-family: Verdana; float: left;">
+        <div style='margin: 10px;'>
+            <h3>Departments</h3>
+		</div>
+        
+		<!--Content-->
+		<div style='white-space: nowrap;'>
+			<ul>
+				<li>Finance<ol><li>Mark Johnson</li></ol></li><br>
+				<li>Marketing<ol><li>Jane Smith</li></ol></li><br>
+				<li>Sales<ol><li>Brian Adam</li></ol></li><br>
+				<li>Support<ol><li>Mary Jones</li></ol></li><br>
+				<li>Technology<ol><li>John Smith</li><li>Michael Jefferson</li></ol></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

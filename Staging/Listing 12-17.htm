@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jqWidget - Calendar</title>
+
+    <link rel="stylesheet" href="styles/jqx.base.css"/>
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jqx-all.js"></script>
+
+    <script>
+        $(function () {
+            $("#appointmentCalendar").jqxCalendar({ width: '250px', height: '250px'});
+
+            $('#appointmentCalendar').on('valuechanged', function (event) {
+                var date = event.args.date;
+                $("#msg").html("Selected Date: " + date.toDateString());
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id='jqxWidget'>
+        <div id='appointmentCalendar'></div>
+    </div><br>
+    
+	<div id="msg"></div>
+</body>
+</html>

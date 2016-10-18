@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script src="scripts/jquery-2.1.0.min.js"></script>
+   
+	<script>
+		$(function() {
+			$("img").mouseover(function () {
+				$(this).css("opacity", "0.3");
+            });
+			
+            $("img").mouseout(function () {
+				$(this).css("opacity", "1.0");
+			});
+        });
+	</script>
+</head>
+<body>
+   <img src="images/panda.png">
+</body>
+</html>

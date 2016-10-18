@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script src="scripts/jquery-2.1.0.min.js"></script>
+   
+	<style>
+		.list {
+			border:3px double green;
+			width:350px;
+		}
+		.newRecord {
+			background-color: lightyellow;
+		}
+	</style>
+   
+	<script>
+		$(function(){
+			$("#btnTestIt").click(function () {
+                $(".newRecord").closest(".list").each(function () {
+                    alert($(this).prop("tagName"));
+                });
+			});
+		});
+	</script>
+</head>
+<body>
+	<strong>Departments:</strong>
+	<div class="list">
+		<ul>
+			<li>Marketing</li>
+			<li>Sales</li>
+			<li class="newRecord">Technology</li>
+			<li>Customer Support</li>
+		</ul>
+	</div><br>
+   
+	<input id="btnTestIt" type="button" value="Test It">
+</body>
+</html>

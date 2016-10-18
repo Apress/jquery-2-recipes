@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script src="scripts/jquery-2.1.0.min.js"></script>
+   
+	<style>
+		.highlight {
+			text-decoration:underline; 
+			background-color:yellow;
+			width: 150px;
+		}
+	</style>
+   
+	<script>
+		$(function(){
+			$("#btnTestItGetValue").click(function () {
+				alert($("#txtName").val());
+			});
+
+			$("#btnTestItSetValue").click(function () {
+				$("#txtName").val("John Smith");
+			});
+		});
+	</script>
+</head>
+<body>
+	<strong>Name:</strong><input type="text" id="txtName"><br><br><br>
+	<input id="btnTestItGetValue" type="button" value="Test It (Get Value)"><br><br>
+	<input id="btnTestItSetValue" type="button" value="Test It (Set Value)"> 
+</body>
+</html>

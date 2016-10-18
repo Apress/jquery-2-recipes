@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="styles/jquery.mobile-1.4.3.min.css" />
+      
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jquery.mobile-1.4.3.min.js"></script>
+      
+    <script>
+        var employees = new Array();
+                
+        employees.push({name:"Jane Smith", department:"Marketing", salary:"$95,000"});
+        employees.push({name:"Brian Adam", department:"Sales", salary:"$72,000"});
+        employees.push({name:"Mary Jones", department:"Support", salary:"$60,000"});
+        employees.push({name:"John Smith", department:"Technology", salary:"$90,000"});
+        employees.push({name:"Michael Jefferson", department:"Technology", salary:"$85,000"});
+      
+        $(function() {
+            $("#listDepartments").click(function (eventObj) {
+                var selectedDepartmentName = $(eventObj.target).text();
+      
+                $("#deptName").html(selectedDepartmentName);
+      
+                $("#employeeRecords").empty();
+                $.each(employees, function(currentIndex) {
+                    if (employees[currentIndex].department == selectedDepartmentName) {
+                        $("#employeeRecords").append("<tr><td>" + employees[currentIndex].name + 
+                            "</td><td>" + employees[currentIndex].salary + "</td></tr>");
+                    }
+                });
+      
+                $( ":mobile-pagecontainer" ).pagecontainer( "change", "#employees", { 
+                    role: "page", transition: "slide" 
+                } );
+      
+            });
+        });
+	</script>
+</head>
+
+<body>
+    <div id="departments" data-role="page"> 
+        <div data-role="header" data-theme="b">
+            <h1>Departments</h1>
+            <a href="login.htm" data-role="button" data-icon="home" data-iconshadow="true"  
+                data-shadow="true" data-corners="true" data-iconpos="notext">Home</a>
+
+            <a href="#myPanel" data-role="button" data-icon="bars" data-iconshadow="true"  
+                data-shadow="true" data-corners="true" data-direction="reverse" 
+                data-transition="slide" data-iconpos="notext"  class="ui-btn-right">Panel</a>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <ul id="listDepartments" data-role="listview" data-inset="true" data-filter="true">
+                <li><a href="#">Marketing</a></li>
+                <li><a href="#">Sales</a></li>     
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Technology</a></li>
+            </ul>
+        </div>
+      
+        <div data-role="footer" data-position="fixed"  data-theme="b">
+            <div data-role="navbar" data-iconpos="left"> 
+                <ul>
+                    <li><a href="addDepartment.htm" data-icon="plus">Add</a></li>
+                    <li><a href="#departments" data-icon="bullets"  class="ui-btn-active">List</a></li>
+                    <li><a href="#myPanel"  data-icon="bars">More...</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div data-role="panel" id="myPanel" data-position="right" data-theme="b">
+            <ul data-role="listview">
+                <li data-icon="false"><a href="#">Add Employee</a></li>
+                <li data-icon="false"><a href="#">Search Employees</a></li>
+                <li data-icon="false"><a href="addDepartment.htm">Add Department</a></li>
+                <li data-icon="false"><a href="#">Search Departments</a></li>
+            </ul>
+        </div>
+	</div>
+      
+    <div id="employees" data-role="page">
+        <div data-role="header" data-theme="b"  data-add-back-btn="true">
+			<h1 id="deptName"></h1>
+		</div>
+      
+		<div data-role="main" class="ui-content">
+			<table id="tableName" data-role="table" class="ui-responsive ui-shadow table-stroke table-stripe" 
+				data-mode="reflow">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Salary</th>
+					</tr>
+				</thead>
+
+				<tbody id="employeeRecords"></tbody>
+			</table>
+		</div>
+      
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h1 id="footerMsg">&#0169; 2014 Acme Corporation. All rights reserved.</h1>
+		</div>
+    </div>
+</body>
+</html>

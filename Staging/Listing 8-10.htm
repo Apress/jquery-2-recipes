@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    
+	<style>
+		div {
+            border:3px double green;
+            width: 50px;
+            height: 50px;
+            position:absolute;
+            left:100px;
+            top:100px;
+            background-color: yellow;
+		}
+
+		.newColor {
+            background-color: green;
+		}
+	</style>
+
+    <script>
+		$(function () {
+            $("#animate").click( function() {
+				$("#box").animate({left:"+=300", opacity: 0.6}, 2000, 'linear')
+						.animate({top: "+=200", opacity: 0.2}, 2000, 'linear')
+						.queue(function () { 
+							$(this).addClass('newColor').dequeue();
+						})
+						.slideUp(1000)
+						.slideDown(1000);
+            });
+
+            $("#stopAnimation").click( function() {
+				var clearQueue = $("#clearQueue").prop("checked");
+				var goToTheEnd = $("#goToTheEnd").prop("checked");
+
+				$("#box").stop(clearQueue, goToTheEnd);
+            });
+
+            $("#reset").click( function() {
+				location.reload();
+            });
+		});
+	</script>
+</head>
+
+<body>
+    <input type="checkbox" id="clearQueue">Clear queue &nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="checkbox" id="goToTheEnd">Go to the end<br><br>
+    <input id="animate" type="button" value="Animate">
+    <input id="stopAnimation" type="button" value="Stop Animation">
+    <input id="reset" type="button" value="Reset"><br>
+
+    <div id="box"></div>
+</body>
+</html> 

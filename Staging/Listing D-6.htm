@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <script>
+              function displayDepartments(employeeObject) {
+                  for (var i=0; i<employeeObject.departments.length; i++) {
+                            // Display department names of the employee
+                            alert(employeeObject.departments[i]);
+                  }
+              }
+
+       // Create employee object
+       var empObj = new Object();
+        
+       // Set employee object 
+       empObj.id = 1;
+       empObj.name = "John Smith";
+        
+       // Set department names in an array
+       var departments = new Array();
+       departments.push("Infrastructure");
+       departments.push("Development");
+        
+       // Set departments for the employee
+       empObj.departments = departments;
+
+       // Call displayDepartments() function
+       displayDepartments(empObj);	
+    </script>
+
+</head>
+
+<body></body>
+</html>

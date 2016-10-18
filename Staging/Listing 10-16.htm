@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <link rel="stylesheet" href="styles/jquery-ui.min.css">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
+
+    <style>
+        div {
+            border:3px double green;
+            width: 100px;
+            height: 100px;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+                    background-color: lightyellow;
+		}
+	</style>
+
+    <script>
+        $(function() {
+            $("#btnRunEffect").button();
+            $("#btnHide").button();
+            $("#btnShow").button();
+
+            $("#btnRunEffect").click( function () {
+                var selectedEffectType = $("#effectType").val();
+                $("div").effect(selectedEffectType, {
+                    direction: "both",
+                    origin: ["top", "right"],
+                    percent: 10,
+                    scale: "box"
+				});
+			});
+
+            $("#btnHide").click( function () {
+                var selectedEffectType = $("#effectType").val();
+                $("div").hide(selectedEffectType, {
+                    direction: "both",
+                    origin: ["top", "right"]
+                });
+            });
+
+            $("#btnShow").click( function () {
+                var selectedEffectType = $("#effectType").val();
+                $("div").show(selectedEffectType, {
+                    direction: "both",
+                    origin: ["top", "right"]
+				});
+			});
+        });
+	</script>
+</head>
+
+<body>
+    Effect Type: 
+    <select id="effectType">
+        <option value="blind">Blind</option>
+        <option value="bounce">Bounce</option>
+        <option value="clip">Clip</option>
+        <option value="drop">Drop</option>
+        <option value="explode">Explode</option>
+        <option value="fade">Fade</option>
+        <option value="fold">Fold</option>
+        <option value="highlight">Highlight</option>
+        <option value="puff">Puff</option>
+        <option value="pulsate">Pulsate</option>
+        <option value="scale">Scale</option>
+        <option value="shake">Shake</option>
+        <option value="size">Size</option>
+        <option value="slide">Slide</option>
+        <option value="transfer">Transfer</option>
+	</select><br><br>
+    
+	<button id="btnRunEffect">Run Effect</button>
+    <button id="btnHide">Hide</button>
+    <button id="btnShow">Show</button><br><br>
+    <div></div>
+</body>
+</html>

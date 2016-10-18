@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    
+	<style>
+		label {
+			float:left;
+			display:block;
+			width: 175px;
+			font-weight: bold;
+		}
+
+		div {
+            width: 400px;
+            border:3px double green;
+            background-color: lightyellow;
+		}
+
+		.message {
+            width: 400px;
+            color: green;
+		}
+	</style>
+
+    <script>
+		$(function() {
+			$("#lblProcessingStatus").hide();
+			
+			$("#btnSubmit").click(function () {
+				$("#lblProcessingStatus").show();
+				$("#btnSubmit").hide();
+            });
+		});
+	</script>
+</head>
+
+<body>
+    <h3>Payment Details:</h3>
+    <div>
+    <fieldset>
+        <label for="txtCustomerName">Name:</label>
+        <input type="text" id="txtCustomerName"><br>
+
+        <label for="txtCustomerAddress">Address:</label>
+        <input type="text" id="txtCustomerAddress"><br>
+
+        <label for="txtCreditCardNumber">Credit Card Number:</label>
+        <input type="text" id="txtCreditCardNumber" size="16"><br>
+
+        <label for="txtExpiryDate">Expiry Date:</label>
+        <input type="text" id="txtExpiryDate" size="5"><br>
+        <label for="txtCCV">CCV:</label>
+        <input type="text" id="txtCCV" size="4"><br>
+	</fieldset>
+    </div><br>
+
+    <label id="lblProcessingStatus" class="message">Processing payment. Please wait for the confirmation.</label>
+    
+	<button id="btnSubmit">Submit</button>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{ 
+	"departments": [
+		{"department":"Finance"},
+		{"department":"Marketing"},
+		{"department":"Sales"},
+		{"department":"Support"},
+		{"department":"Technology"}
+	]
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    
+	<script>
+        $(function() {
+            $("#btnTestIt").click(function() {
+                var searchText = $("#txtSearch").val();
+                $("td:contains('" + searchText + "')").css("background-color", "yellow");
+            });
+            
+			$("#btnReset").click(function () {
+                $("td").css("background-color", "white");
+            });
+        });
+    </script>
+</head>
+<body>
+    <table>
+        <tr><td>John Smith</td><td>Marketing</td></tr>
+        <tr><td>Jane Smith</td><td>Sales</td></tr>
+        <tr><td>Mike Jordon</td><td>Technology</td></tr>
+        <tr><td>Mary Jones</td><td>Customer Support</td></tr>
+    </table><p>
+    
+	Search: <input id="txtSearch" type="text">
+    <input id="btnTestIt" type="button" value="Test It"> 
+    <input id="btnReset" type="reset" value="Reset">
+</body>
+</html>

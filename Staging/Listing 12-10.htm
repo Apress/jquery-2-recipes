@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jqWidget - Tree</title>
+
+    <link rel="stylesheet" href="styles/jqx.base.css"/>
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jqx-all.js"></script>
+
+    <script>
+        $(function () {
+            $('#departments').jqxTree({ height: '300px', width: '300px' });
+        });
+    </script>
+</head>
+
+<body>
+   <div id='departments'>
+        <ul>
+            <li item-expanded='true'>Departments
+				<ul>
+					<li>Finance<ul><li>Mark Johnson</li></ul></li>
+					<li>Technology<ul><li>John Smith</li><li>Michael Jefferson</li></ul></li>
+					<li>Sales<ul><li>Brian Adam</li></ul></li>
+					<li>Support<ul><li>Mary Jones</li></ul></li>
+					<li>Marketing<ul><li>Jane Smith</li></ul></li>
+				</ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

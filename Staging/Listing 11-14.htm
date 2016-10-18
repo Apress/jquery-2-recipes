@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="styles/jquery.mobile-1.4.3.min.css" />
+      
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jquery.mobile-1.4.3.min.js"></script>
+      
+    <style>
+        .ui-block-a, .ui-block-b, .ui-block-c {
+            border:3px double green;
+            background-color: lightyellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div data-role="page">
+        <div data-role="header">
+			<h1>Grid Layout</h1>
+        </div>
+
+        <div data-role="main">
+            <div class="ui-grid-b">
+				<div class="ui-block-a"><a href="#somelink1" class="ui-btn">Search</a></div>
+				<div class="ui-block-b"><a href="#somelink2" class="ui-btn">Add</a></div>
+				<div class="ui-block-c"><a href="#somelink3" class="ui-btn">More...</a></div>
+            </div>
+		</div>
+	</div>
+</body>
+</html>

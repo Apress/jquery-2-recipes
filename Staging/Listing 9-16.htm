@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    
+	<style>
+		div {
+            border:3px double green;
+            width: 400px;
+            background-color: lightcyan;
+            padding: 10px;
+		}
+
+		form {
+            border:3px double green;
+            width: 400px;
+            padding: 20px;
+            background-color: lightyellow;
+		}
+       
+		table {
+            border:0px;
+		}
+
+		td {
+            padding-right: 10px;
+            padding-left: 10px;
+		}
+
+		label {
+            float:left;
+            display:block;
+            width: 175px;
+            font-weight: bold;
+		}
+
+		.header {
+            font-weight: bold;
+            background-color: lightgray;
+		}
+
+		.evenRow {
+            background-color: lightyellow;
+		}
+   
+		.oddRow {
+            background-color: lightblue;
+		}
+
+		.errMsg {
+            background-color: orange;
+            color: white;
+            font-weight: bold;
+            width: 400px;
+		}
+	</style>
+
+	<script>
+		function processData(returnedData, status) {
+			$("#ajaxStatusMessage").append("Status: " + status + "<br>");
+    
+            if (returnedData.processingStatus == "Successful") {
+				$("#processingResult").append("New employee record is created successfully.");
+            } else {
+				$("#processingResult").append("Failed to create new employee record.");
+				$("#processingResult").addClass("errMsg");
+			}
+		}
+
+		function reportError(request, status, errorMsg) {
+            $("#ajaxStatusMessage").append("Status: " + status + "<br>Error Message: " + errorMsg);
+            $("#ajaxStatusMessage").addClass("errMsg");
+		}
+ 
+		$(function () {
+            $("#btnCreateNew").click( function (eventObj) {
+				eventObj.preventDefault();
+
+				$.ajax({
+					type: "POST", 
+					url: "createNewEmployee.json",
+					data: $("form").serializeArray(),
+					dataType: "json",
+					success: processData, 
+					error: reportError
+				});
+
+				var fields = "";
+				$.each( $("form").serializeArray(), function( i, field ) {
+					fields += "[Key: " + field.name + " Value: " + field.value + "]<br>";
+				});
+
+				$("#ajaxStatusMessage").append("Data Sent to the server: <br>" + fields + "<br>");
+            });
+		});
+	</script>
+</head>
+
+<body>
+    <h4>New Employee:</h4>
+    <form id="frmSearch">
+		<label for="txtEmployeeName">Employee's Name:</label>
+		<input type="text" id="txtEmployeeName" name="txtEmployeeName"><br>
+
+		<label for="txtDepartment">Department Name:</label>
+		<input type="text" id="txtDepartment" name="txtDepartment"><br>
+
+		<label for="txtSalary">Salary (greater than):</label>
+		<input type="text" id="txtSalary" name="txtSalary"><br><br>
+
+		<button id="btnCreateNew">Create New Employee Record</button>
+	</form><br><br>
+ 
+    <div id="ajaxStatusMessage"></div><br>
+ 
+    Processing Result:
+    <div id="processingResult"></div><br><br><br>
+</body>
+</html>

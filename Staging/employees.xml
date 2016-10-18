@@ -1,0 +1,31 @@
+<employees>
+    <employee>
+		<employeeName>Jane Smith</employeeName>
+		<department>Marketing</department>
+		<salary>$95000</salary>
+    </employee>
+
+    <employee>
+		<employeeName>John Smith</employeeName>
+		<department>Technology</department>
+		<salary>$90000</salary>
+    </employee>
+
+    <employee>
+		<employeeName>Brian Adam</employeeName>
+		<department>Sales</department>
+		<salary>$72000</salary>
+    </employee>
+
+    <employee>
+		<employeeName>Mary Jones</employeeName>
+		<department>Support</department>
+		<salary>$60000</salary>
+    </employee>
+
+    <employee>
+		<employeeName>Michael Jefferson</employeeName>
+		<department>Technology</department>
+		<salary>$85000</salary>
+    </employee>
+</employees>

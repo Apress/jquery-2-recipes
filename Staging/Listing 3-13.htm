@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    
+	<style>
+        .headerRow {
+            font-family: Verdana;
+            font-weight: bold;
+            background-color: lightgray;
+        }
+        .row {
+            font-family: Verdana;
+            font-style: normal;
+        }
+    </style>
+    <script>
+        $(function() {
+            $(".row:even").css("background-color", "lightblue");
+            $(".row:odd").css("background-color", "lightyellow");
+        });
+    </script>
+</head>
+<body>
+    <table style="border:0px" id="tblEmployee">
+        <tr class="headerRow">
+            <td>Employee Name</td><td>Department</td><td>Salary</td>
+        </tr> 
+        <tr class="row">
+            <td>Jane Smith</td><td>Marketing</td><td>$95,000</td>
+        </tr> 
+        <tr class="row">
+            <td>John Smith</td><td>Technology</td><td>$90,000</td>
+        </tr> 
+        <tr class="row">
+            <td>Brian Adam</td><td>Sales</td><td>$72,000</td>
+        </tr> 
+        <tr class="row">
+            <td>Mary Jones</td><td>Support</td><td>$60,000</td>
+        </tr> 
+        <tr class="row">
+            <td>Michael Jefferson</td><td>Technology</td><td>$85,000</td>
+        </tr>
+    </table>
+</body>
+</html>

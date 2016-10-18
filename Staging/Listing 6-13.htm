@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script src="scripts/jquery-2.1.0.min.js"></script>
+   
+	<style>
+		.list { border:3px double green; width:350px; }
+		.newRecord { font-weight: bold; }
+		.tableHeader { background-color: lightgray; }
+		.listDepartments { width: 200px; }
+	</style>
+   
+	<script>
+		$(function(){
+			$("#btnTestIt").click(function () {
+				$("#txtName").prop("value", "John Smith");
+				var msg = 	"attr: " + $("#txtName").attr("value") + "<br>" +
+							"prop: " + $("#txtName").prop("value");
+
+				$("#message").prop("innerHTML", msg);
+			});
+		});
+	</script>
+</head>
+<body>
+	Gender: <input type="radio" name="gender" id="chkMale" checked>Male
+	<input type="radio" name="gender" id="chkFemale">Female <br>
+	Name: <input type="text" id="txtName" value="" maxlength="40"><br><br>
+	<input id="btnTestIt" type="button" value="Test It"><br><br>
+	
+	<div id="message"></div>
+</body>
+</html>

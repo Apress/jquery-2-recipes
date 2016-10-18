@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jqWidget - ListMenu</title>
+
+    <link rel="stylesheet" href="styles/jqx.base.css"/>
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jqx-all.js"></script>
+
+    <style>
+        label {float:left; display:block; width: 100px; font-weight: bold; }
+    </style>
+
+    <script>
+        $(function () {
+            $('#list').jqxListMenu({ width: 300, enableScrolling: false, showHeader: true, showBackButton: true });
+        });
+      </script>
+</head>
+<body>
+	<ul id="list" data-role="listmenu">
+		<li>Technology
+			<ul data-role="listmenu">
+				<li>John Smith
+					<ul data-role="listmenu" style="width: 225px">
+						<li style="background-color: white;">
+                            <div style="text-align:center"><img src="images/man.jpg" width="50%"><br><br><br></div>
+                            <label>Name:</label> John Smith<br>
+                            <label>Hire Date:</label> June 12th, 2003<br>
+                            <label>Salary:</label>$90,000
+						</li>
+					</ul>
+				</li>
+				<li>Michael Jefferson
+					<ul data-role="listmenu"  style="width: 225px">
+						<li style="background-color: white;">
+                            <div style="text-align:center"><img src="images/man.jpg" width="50%"><br><br><br></div>
+                            <label>Name:</label> Michael Jefferson</br>
+                            <label>Hire Date:</label> August 20th, 2008</br>
+                            <label>Salary:</label>$85,000
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+    
+		<li>Finance
+			<ul data-role="listmenu">
+				<li>Mark Johnson
+					<ul data-role="listmenu" style="width: 225px">
+						<li style="background-color: white;">
+                            <div style="text-align:center">
+                            <img src="images/man.jpg" width="50%"><br><br><br></div>
+                            <label>Name:</label> Mark Johnson<br>
+                            <label>Hire Date:</label> October 14th, 1999<br>
+                            <label>Salary:</label> $285,000
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>

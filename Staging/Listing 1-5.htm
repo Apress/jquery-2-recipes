@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+	<title>Iterate Through Objects</title>
+	<meta charset=utf-8>
+	
+	<script>
+		var employees = new Array(
+			{"FirstName":"John", "LastName":"Smith", "MonthlySalary": 5000}, 
+			{"FirstName":"Jane", "LastName":"Smith", "MonthlySalary":5450});
+
+		for (var i in employees) {
+			var bonusPercentage;
+		
+			if (employees[i].MonthlySalary <= 5000) {
+				bonusPercentage = 0.05;
+			} else {
+				bonusPercentage = 0.03;
+			}
+      
+			document.write(employees[i].FirstName + " " + 
+				(employees[i].MonthlySalary*bonusPercentage) + "<br>");
+		}
+   </script>
+</head>
+
+<body>
+</body>
+</html>

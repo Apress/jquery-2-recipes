@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jqWidget - NavigationBar</title>
+
+    <link rel="stylesheet" href="styles/jqx.base.css"/>
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jqx-all.js"></script>
+
+    <script>
+        $(function () {
+            // Create Navigation Bar 
+            $("#navigationBar").jqxNavigationBar({ width: 200, height: 200});
+        });
+    </script>
+</head>
+
+<body>
+    <div id='navigationBar'>
+		<div>Finance</div>
+        <div>Mark Johnson</div>
+        
+        <div>Marketing</div>
+        <div>Jane Smith</div>
+        
+        <div>Sales</div>
+        <div>Brian Adam</div>  
+        
+        <div>Support</div>
+        <div>Mary Jones</div>    
+        
+        <div>Technology</div>
+        <div>
+              John Smith<br>
+              Michael Jefferson
+        </div>             
+    </div>
+</body>
+</html>

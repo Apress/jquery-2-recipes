@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script src="scripts/jquery-2.1.0.min.js"></script>
+	
+	<style>
+		label {
+            float:left;
+            display:block;
+            width: 100px;
+            font-weight: bold;
+		}
+	</style>
+	
+	<script>
+        $(function () {
+            $("[id ^= 'btn']").click( function () {
+                var selector = $(this).val();
+                $(selector).css("background-color", "yellow");
+            });
+            
+			$("#buttonReset").click( function () {
+                $("*").css("background-color", "white");
+            });
+        });
+	</script>
+</head>
+<body>
+    <form>
+        <label>User Name: </label> <input type="text"><br>
+        <label>Password: </label> <input type="password"><br>
+        <label>Gender: </label> 
+        <input type="radio" name="gender" checked>Male   
+        <input type="radio" name="gender">Female   
+        <br>
+        <label>Hobbies: </label> 
+        <input type="checkbox" name="hobbies" checked>Music
+        <input type="radio" name="hobbies">Travel   
+        <input type="radio" name="hobbies" disabled>Gardening   
+        <br><br>
+        <input type="file">
+        <br><br><br><br>
+        <input id="btnButton" type="button" value=":button">
+        <input id="btnEnabled" type="button" value=":enabled">
+        <input id="btnFile" type="button" value=":file">
+        <input id="btnFocus" type="button" value=":focus">
+        <input id="btnInput" type="button" value=":input">
+        <input id="btnPassword" type="button" value=":password">
+        <input id="btnReset" type="button" value=":reset">
+        <input id="btnSubmit" type="button" value=":submit">
+        <input id="btnText" type="button" value=":text">
+        <br><br>
+        <button type="submit" id="buttonSubmit">Submit</button>
+        <button type="reset" id="buttonReset">Reset</button>
+    </form>
+</body>
+</html>

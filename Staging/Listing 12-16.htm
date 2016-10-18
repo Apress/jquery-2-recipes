@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jqWidget - Chart</title>
+
+    <link rel="stylesheet" href="styles/jqx.base.css"/>
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jqx-all.js"></script>
+      
+    <script>
+        var dataAdapter;
+
+        var precipitationData = { 
+            "precipitation": [
+                { "Month":"January", "Chicago":3, "Los Angeles":5, "New York": 5},
+                { "Month":"February", "Chicago":3, "Los Angeles":6, "New York": 4},
+                { "Month":"March", "Chicago":4, "Los Angeles":4, "New York": 5},
+                { "Month":"April", "Chicago":4, "Los Angeles":2, "New York": 5},
+                { "Month":"May", "Chicago":6, "Los Angeles":1, "New York": 5},
+                { "Month":"June", "Chicago":6, "Los Angeles":1, "New York": 5},
+                { "Month":"July", "Chicago":4, "Los Angeles":1, "New York": 6},
+                { "Month":"August", "Chicago":4, "Los Angeles":1, "New York": 5},
+                { "Month":"September", "Chicago":4, "Los Angeles":1, "New York": 5},
+                { "Month":"October", "Chicago":4, "Los Angeles":2, "New York": 4},
+                { "Month":"November", "Chicago":4, "Los Angeles":2, "New York": 5},
+                { "Month":"December", "Chicago":3, "Los Angeles":4, "New York": 5}
+            ]
+        }
+
+        function getOptions(chartType) {
+            // Set Chart Settings
+            var options = {
+                title: "Precipitation Monthly Graph",
+                description: "[ Year 2013 ]",
+                padding: { left: 5, top: 5, right: 5, bottom: 5 },
+                titlePadding: { left: 90, top: 0, right: 0, bottom: 10 },
+                source: dataAdapter,
+                categoryAxis: {
+					dataField: 'Month',
+					showGridLines: false
+				},
+				colorScheme: 'scheme01',
+				seriesGroups: [{
+					type: chartType,
+					columnsGapPercent: 30,
+					seriesGapPercent: 0,
+					valueAxis: {
+						minValue: 0,
+						maxValue: 15,
+						unitInterval: 1,
+						description: '(in inches)'
+					},
+					series: [
+						{ dataField: 'Chicago', displayText: 'Chicago, IL'},
+						{ dataField: 'Los Angeles', displayText: 'Los Angeles, CA'},
+						{ dataField: 'New York', displayText: 'New York, NY'}
+					]
+				}]
+            };
+            
+            return(options);
+        }
+    
+        $(function () {
+            // Set Data Source
+            var source = {
+				datatype: "json",
+                datafields: [
+                    { name: 'Month', type: 'string' },
+                    { name: 'Chicago', type: 'int' },
+                    { name: 'Los Angeles', type: 'int' },
+                    { name: 'New York', type: 'int' }
+                ],
+                localdata: precipitationData
+            };
+             
+            dataAdapter = new $.jqx.dataAdapter(source); 
+        
+            // Create Chart
+            $('#chartContainer').jqxChart(getOptions($("#chartType").val()));
+            
+            $("#chartType").on("change", function() {       
+               $('#chartContainer').jqxChart(getOptions($("#chartType").val()));
+            });
+        });
+    </script>
+</head>
+
+<body>
+	<label>Chart Type:</label>
+    <select id="chartType">
+        <option value="column" selected="selected">Column</option>
+        <option value="line">Line</option>
+        <option value="stackedcolumn">Stacked Column</option> 
+    </select><br><br><br>
+                 
+    <div id='chartContainer' style="width:600px; height: 400px"></div>
+</body>
+</html>

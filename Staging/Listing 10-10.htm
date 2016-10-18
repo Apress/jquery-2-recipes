@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <link rel="stylesheet" href="styles/jquery-ui.min.css">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
+
+    <style>
+       h3 {width:700px; }
+       div {width:670px;}
+	</style>
+
+    <script>
+		$(function() {
+            $( "#album" ).accordion({
+				active: 2,
+				icons: {
+					header: "ui-icon-triangle-1-e",
+                    activeHeader: "ui-icon-triangle-1-s"
+				}
+			});
+		});
+	</script>
+</head>
+
+<body>
+    <div id="album">
+		<h3>Animals</h3>
+		<div>
+			<img src="images/Cat.png"/>
+			<img src="images/Dog.png"/>
+			<img src="images/Elephant.png"/>
+			<img src="images/Hippopotamus.png"/>
+			<img src="images/Panda.png"/>
+		</div>
+
+		<h3>Birds</h3>
+		<div>
+			<img src="images/Bird1.png"/>
+			<img src="images/Bird2.png"/>
+			<img src="images/Owl.png"/>
+			<img src="images/Penguin1.png"/>
+			<img src="images/Penguin2.png"/>
+		</div>
+
+		<h3>Insects</h3>
+		<div>
+			<img src="images/Butterfly1.png"/>
+			<img src="images/Butterfly2.png"/>
+			<img src="images/Butterfly3.png"/>
+			<img src="images/Grasshopper.png"/>
+			<img src="images/LadyBug.png"/>
+		</div>
+
+		<h3>Sea Animals</h3>
+		<div>
+			<img src="images/Fish2.png"/>
+			<img src="images/Dolphin.png"/>
+			<img src="images/Fish1.png"/>
+			<img src="images/JellyFish.png"/>
+			<img src="images/WireShark.png"/>
+		</div>
+    </div>
+</body>
+</html>

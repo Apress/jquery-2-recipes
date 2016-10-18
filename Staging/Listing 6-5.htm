@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script src="scripts/jquery-2.1.0.min.js"></script>
+	
+	<style>
+		ul { width:150px; }
+		.underline { text-decoration: underline; }
+		.item_0 { background-color: lightyellow; }
+        .item_1 { background-color: lightblue; }   
+        .item_2 { background-color: lightgray; }
+        .item_3 { background-color: lightgreen; }
+	</style>
+   
+	<script>
+		$(function(){
+			$("#btnTestIt").click(function (){
+				$("li").toggleClass(function(index, currentClassName){
+					return("item_" + index);
+                });
+			});
+		});
+	</script>
+</head>
+<body>
+	<strong>Departments:</strong>
+	<ul>
+		<li class="underline">Marketing</li>
+		<li>Sales</li>
+		<li>Technology</li>
+		<li>Customer Support</li>
+	</ul>
+   
+	<input id="btnTestIt" type="button" value="Test It">
+</body>
+</html>

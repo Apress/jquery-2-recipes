@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+	<soap:Header>
+	</soap:Header>
+	<soap:Body>
+		<m:GetCurrentTemperatureRequest xmlns:m="http://www.myWeather.org/weather">
+			<m:ZipCode>60606</m:ZipCode>
+		</m: GetCurrentTemperatureRequest>
+	</soap:Body>
+</soap:Envelope>

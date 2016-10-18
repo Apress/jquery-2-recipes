@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="styles/jquery.mobile-1.4.3.min.css" />
+      
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jquery.mobile-1.4.3.min.js"></script>
+      
+    <style>
+        strong {color: green;}
+	</style>
+</head>
+
+<body>
+    <div data-role="page">
+        <div data-role="header">
+			<h1>Buttons</h1>
+		</div>
+
+        <div data-role="main" class="ui-content">
+            <strong>Default Buttons:</strong><br>
+            <a href="#" class="ui-btn">buttonText</a>
+            <button class="ui-btn">buttonText</button>
+            <input type="button" value="buttonText">
+
+            <br><br><strong>Reduced Width:</strong><br>
+            <a href="#" class="ui-btn ui-btn-inline">buttonText</a>
+            <button class="ui-btn ui-btn-inline">buttonText</button>
+            <input type="button" value="buttonText" data-inline="true">
+
+            <br><br><strong>Rounded Corners:</strong><br>
+            <a href="#" class="ui-btn ui-btn-inline ui-corner-all">buttonText</a>
+            <button class="ui-btn ui-btn-inline ui-corner-all ">buttonText</button>
+            <input type="button" value="buttonText" data-inline="true" data-corners="true">
+
+            <br><br><strong>With Shadow:</strong><br>
+            <a href="#" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">buttonText</a>
+            <button class="ui-btn ui-btn-inline ui-corner-all ui-shadow">buttonText</button>
+            <input type="button" value="buttonText" data-inline="true" data-corners="true">
+
+            <br><br><strong>Theme B:</strong><br>
+            <a href="#" class="ui-btn ui-btn-b ui-btn-inline ui-corner-all ui-shadow">buttonText</a>
+            <button class="ui-btn ui-btn-b ui-btn-inline ui-corner-all ui-shadow">buttonText</button>
+            <input type="button" value="buttonText" data-inline="true" data-corners="true" data-theme="b">
+
+            <br><br><strong>With Icon:</strong><br>
+            <a href="#" class="ui-btn ui-btn-inline ui-corner-all ui-icon-home ui-btn-icon-left">buttonText</a>
+            <button class="ui-btn ui-btn-inline ui-corner-all ui-icon-home ui-btn-icon-left">buttonText</button>
+            <input type="button" value="buttonText" data-inline="true" data-corners="true" data-icon="home" data-iconpos="left">
+
+            <br><br><strong>Icon Only. No text:</strong><br>
+            <a href="#" class="ui-btn ui-btn-inline ui-corner-all ui-icon-home ui-btn-icon-notext">buttonText</a>
+            <button class="ui-btn ui-btn-inline ui-corner-all ui-icon-home ui-btn-icon-notext">buttonText</button>
+            <input type="button" value="buttonText" data-inline="true" data-corners="true" data-icon="home" data-iconpos="notext">
+
+            <br><br><strong>Mini:</strong><br>
+            <a href="#" class="ui-btn ui-btn-inline ui-corner-all ui-icon-home ui-btn-icon-left ui-mini">buttonText</a>
+            <button class="ui-btn ui-btn-inline ui-corner-all ui-icon-home ui-btn-icon-left ui-mini">buttonText</button>
+            <input type="button" value="buttonText" data-inline="true" data-corners="true" data-icon="home" data-mini="true">
+
+            <br><br><strong>Disable:</strong><br>
+            <a href="#" class="ui-btn ui-btn-inline ui-corner-all ui-icon-home ui-btn-icon-left ui-mini ui-state-disabled">buttonText</a>
+            <button class="ui-btn ui-btn-inline ui-corner-all ui-icon-home ui-btn-icon-left ui-mini" disabled>buttonText</button>
+            <input type="button" value="buttonText" data-inline="true" data-corners="true" data-icon="home" data-mini="true" disabled>
+
+            <br><br><strong>Icon only:</strong><br>
+            <a href="#" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
+            <button class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</button>
+            <input type="button" value="buttonText" data-icon="bars" data-iconpos="notext" data-corners="true">
+
+            <br><br><strong>Buttons Grouping (Default):</strong><br>
+            <div data-role="controlgroup"  data-mini="true">
+                <a href="#" class="ui-btn ui-btn-b ui-shadow ui-corner-all ui-icon-search ui-btn-icon-left">Search</a>
+                <a href="#" class="ui-btn ui-btn-b ui-shadow ui-corner-all ui-icon-plus ui-btn-icon-left">Add</a>
+                <a href="#" class="ui-btn ui-btn-b ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-left">Delete</a>
+			</div>
+
+            <br><br><strong>Buttons Grouping (horizontal):</strong><br>	
+            <div data-role="controlgroup"  data-type="horizontal" data-mini="true">
+                <a href="#" class="ui-btn ui-btn-b ui-shadow ui-corner-all ui-icon-search ui-btn-icon-left">Search</a>
+                <a href="#" class="ui-btn ui-btn-b ui-shadow ui-corner-all ui-icon-plus ui-btn-icon-left">Add</a>
+                <a href="#" class="ui-btn ui-btn-b ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-left">Delete</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

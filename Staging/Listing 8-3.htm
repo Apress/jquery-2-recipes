@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <script src="scripts/jquery-2.1.0.min.js"></script>	
+
+    <style>
+		div {
+			border:3px double black;
+            border-style:solid;
+            width: 400px;
+            background-color:lightyellow;
+            padding: 10px;
+		}
+
+		label {
+			display: block;
+            float: left;
+            width:250px;
+		}
+
+		.boxStyle {
+            border:3px double green;
+            height:60px;
+            width:60px;
+            margin-left:150px;
+            border-style:solid;
+                   background-color:lightgreen;
+		}
+	</style>
+
+    <script>
+		$(function() {
+            $("#btnTestIt").click(function () {
+				var effectSelected = $("#effectName").val();
+				var durationValue = $("#duration").val();
+				var opacityValue = $("#txtOpacity").val();
+
+				if (effectSelected == "hide") {
+					$("#box").hide(durationValue);
+				} else if (effectSelected == "show") {
+					$("#box").show(durationValue);
+				} else if (effectSelected == "toggle") {
+					$("#box").toggle(durationValue);
+				} else if (effectSelected == "fadeIn") {
+					$("#box").fadeIn(durationValue);
+				} else if (effectSelected == "fadeTo") {
+					$("#box").fadeTo(durationValue, opacityValue);
+				} else if (effectSelected == "fadeOut") {
+					$("#box").fadeOut(durationValue);
+				} else if (effectSelected == "fadeToggle") {
+					$("#box").fadeToggle(durationValue);
+				} else if (effectSelected == "slideUp") {
+					$("#box").slideUp(durationValue); // hide with slide up animation
+				} else if (effectSelected == "slideDown") {
+					$("#box").slideDown(durationValue);// show with slide up animation
+				}  else if (effectSelected == "slideToggle") {
+					$("#box").slideToggle(durationValue);
+				}
+			});
+
+            $("#btnReset").click(function (){
+				$("#box").show();
+				$("#effectName").prop("selectedIndex", 0);
+				$("#duration").prop("selectedIndex", 0);
+				$("#txtOpacity").val(0.5);
+            });
+		});
+	</script>
+</head>
+
+<body>
+    <div id="box" class="boxStyle"></div><br>
+
+    <div>
+        <label>Effect's Method Name: </label>
+        <select id="effectName">
+			<option>hide</option>
+			<option>show</option>
+			<option>toggle</option>
+			<option>fadeIn</option>
+			<option>fadeTo</option>
+			<option>fadeOut</option>
+			<option>fadeToggle</option>
+			<option>slideUp</option>
+			<option>slideDown</option>
+			<option>slideToggle</option>
+		</select><br><br>
+
+        <label>Duration:</label> 
+		<select id="duration">
+            <option value="500">0.5 Second</option>
+			<option value="1000">1 Second</option>
+			<option value="2000">2 Seconds</option>
+			<option value="3000">3 Seconds</option>
+			<option value="slow">Slow</option>
+			<option value="fast">Fast</option>
+		</select><br><br>
+
+        <label>Opacity (For fadeTo) (Range: 0-1):</label> 
+        <input type="text" id="txtOpacity" value="0.5"><br><br>
+	</div><br><br>
+
+    <input id="btnTestIt" type="button" value="Test It">
+    <input id="btnReset" type="button" value="Reset">
+</body>
+</html>

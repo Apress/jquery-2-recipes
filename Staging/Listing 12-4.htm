@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jqWidget - ComboBox</title>
+
+    <link rel="stylesheet" href="styles/jqx.base.css"/>
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jqx-all.js"></script>
+
+    <script>
+        $(function () {
+            // Specify data
+            var departmentData = { 
+				"departments":
+                [
+                    {"department":"Finance"},
+                    {"department":"Marketing"},
+                    {"department":"Sales"},
+                    {"department":"Support"},
+                    {"department":"Technology"}
+                ]
+            };
+
+            // Specify data source
+            var source = {
+                datatype: "json",
+                datafields: [{ name: 'department', type: 'string' }],
+				localdata:  departmentData
+            };
+            
+            // Set Data Adapter
+            var dataAdapter = new $.jqx.dataAdapter(source,{
+                loadError: function(jqXHR, status, errorMsg) {
+					alert(status + ": " + errorMsg);
+                }
+            });
+   
+            // Create a jqxComboBox using Data Adapter
+            $("#departments").jqxComboBox({ source: dataAdapter, displayMember: "department", 
+                valueMember: "department", selectedIndex: 0, width: '200px', height: '25px' });
+                             
+            // 'Select' event handler.
+            $('#departments').on('select', function (event) {
+                var args = event.args;
+                var item = $("#departments").jqxComboBox('getItem', args.index);
+                    
+                $("#selectedDepartmentMsg").html('<strong>Selected Department:</strong> ' + item.label);
+            });
+        });
+    </script>
+</head>
+
+<body>
+	<div id="departments"></div><br>
+	<div id="selectedDepartmentMsg"></div>
+</body>
+</html>

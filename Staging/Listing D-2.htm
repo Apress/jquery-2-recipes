@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="scripts/log4javascript.js"></script>
+
+    <script>
+              // Set Logger
+              var log = log4javascript.getLogger("myLogger");
+
+              // Get Appender
+              var appender = new log4javascript.InPageAppender();
+
+              // Set message pattern
+              var layout = new log4javascript.PatternLayout("%c %d - %m");
+              appender.setLayout(layout);
+
+              // Set Appender
+              log.addAppender(appender);
+
+
+              // Set Level
+              log.setLevel(log4javascript.Level.ALL);
+
+              // Log Message
+              log.info("This is the test message.");
+    </script>
+</head>
+<body></body>
+</html>

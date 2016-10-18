@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script src="scripts/jquery-2.1.0.min.js"></script>
+	<style>
+		.oldRecord {
+			font-style: italic;
+		}
+		.listDepartments {
+			width: 200px;
+		}
+	</style>
+   
+	<script>
+		$(function(){
+            $("#btnTestIt").click(function () {
+                $( ".oldRecord" ).parentsUntil("div").css( "background-color", "lightblue" );
+            });
+		});
+	</script>
+</head>
+<body>
+	<strong>Departments:</strong>
+	<div>
+		<ul class="listDepartments">
+			<li>Marketing</li>
+			<li>Sales</li>
+			<li style="position: relative">Technology
+				<ul>
+					<li>Hardware Technology</li>
+					<li class="oldRecord">Software Technology</li>
+				</ul>
+			</li>
+			<li>Customer Support</li>
+		</ul>
+	</div><br>
+   
+	<input id="btnTestIt" type="button" value="Test It">
+</body>
+</html>

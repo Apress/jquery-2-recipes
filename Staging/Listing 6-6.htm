@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script src="scripts/jquery-2.1.0.min.js"></script>
+   
+	<style>
+		.label { width: 200px; font-weight: bold; color: blue; }
+		.dataEntry { background-color: yellow; }
+		.highlight {
+			text-decoration:underline; 
+			background-color:yellow;
+			width: 150px;
+		}
+	</style>	
+   
+	<script>
+		$(function(){
+			$("#btnTestItGet").click(function () {
+				alert($("input:text").css("background-color"));
+			});
+         
+			$("#btnTestItSet").click(function () {
+				$("input:text").css("background-color", "lightblue");
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="label">Name:</div><input type="text" id="txtName" class="dataEntry"><br>
+	<div class="label">Address:</div><input type="text" id="txtAddress" class="dataEntry"><br><br><br>
+	<input id="btnTestItGet" type="button" value="Test It (Get CSS Property)"> <br><br>
+	<input id="btnTestItSet" type="button" value="Test It (Set CSS Property)">
+</body>
+</html>

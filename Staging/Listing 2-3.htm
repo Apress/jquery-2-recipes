@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<script>
+		function getDepartmentName() {
+			var departmentID = document.getElementById("departmentID").value;
+			var departmentName = "";
+
+			if (departmentID == "") {
+				alert("Please enter Department ID");
+			} else if (departmentID == "S")  {
+				departmentName = "Sales";
+			} else if (departmentID == "M")  {
+				departmentName = "Marketing";
+            } else if (departmentID == "T")  {
+				departmentName = "Technology";
+			} else if (departmentID == "C")  {
+				departmentName = "Customer Support";
+			} else {
+				departmentName = "Unknown";
+			}
+			
+			document.getElementById("departmentName").innerHTML = departmentName;
+		}
+    </script>
+</head>
+<body>
+    Department ID [S, M, T, C]:<input id="departmentID" type="text">
+    <label id="departmentName"></label>
+    <br>
+    <input type="button" value="Get Department Name" onClick="getDepartmentName();">
+</body>
+</html>

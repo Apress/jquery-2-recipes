@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script src="scripts/jquery-2.1.0.min.js"></script>
+   
+	<style>	
+		.list {border:3px double green; width:350px; }
+		.newRecord { font-weight: bold; background-color: lightyellow; }
+		.tableHeader { background-color: lightgray; }
+	</style>
+	
+	<script>
+		$(function(){
+			$("#btnTestIt").click(function () {
+				$("#tech").empty();
+				$("#tech").append("<li>Mobile Development</li>");
+			});
+		});
+	</script>
+</head>
+<body>
+	<strong>Departments:</strong>
+	<div>
+		<ul class="listDepartments">
+			<li>Marketing</li>
+			<li>Sales</li>
+			<li>Technology
+				<ul id="tech">
+					<li>Hardware Technology</li>
+					<li class="oldRecord">Software Technology</li>
+				</ul>
+			</li>
+			<li>Customer Support</li>
+		</ul>
+	</div><br>
+   
+	<input id="btnTestIt" type="button" value="Test It">
+</body>
+</html>

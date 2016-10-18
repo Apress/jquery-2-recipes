@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script src="scripts/jquery-2.1.0.min.js"></script>
+      
+	<style>
+		label {
+			float:left;
+            display:block;
+            width: 75px;
+            font-weight: bold;
+		}
+    </style>
+	
+    <script>
+		$(function () {
+			$("input").focus(function () {
+				$(this).css("background-color", "yellow");
+			});
+
+            $("input").blur(function () {
+				$(this).css("background-color", "white");
+			});
+		});
+      </script>
+</head>
+<body>
+	<label>Name:</label> <input id="txtName" type="text" size="30"><br>
+    <label>Address:</label> <input id="txtAddress" type="text" size="50"><br>
+    <label>City:</label> <input id="txtCity" type="text" size="35"><br>
+    <label>State:</label> <input id="txtState" type="text" size="2"><br>
+    <label>Zip Code:</label> <input id="txtZipCode" type="text" size="5"><br>
+</body>
+</html>

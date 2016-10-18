@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script src="scripts/jquery-2.1.0.min.js"></script>
+   
+	<script>
+        function getEventObjectProperties(eventObject) {
+			// eventObject.target is the DOM element that triggered
+            // the element
+  
+            // Get properties of the element, which has triggered
+            // the event
+            var message = "<u>" + eventObject.type + "</u> event is triggered on <u>" +
+                            eventObject.target.nodeName.toLowerCase()  + 
+                            "</u> with the id: <u>" +  $(eventObject.target).attr("id") + "</u><br>";
+               
+            message += "Key/Button was pressed: <u>" + eventObject.which + "</u><br>";
+
+            message += "(x, y) coordinate of the mouse when event is triggered: (<u>" + 
+                                      eventObject.pageX + "</u>, <u>" + eventObject.pageY + "</u>)";
+  
+            $("#message").html(message);
+        }
+   
+        $(function() {
+            $("img").on("mouseenter", function(eventObject) {
+                getEventObjectProperties(eventObject);
+            });
+           
+            $("input").on("focus", function(eventObject) {
+                getEventObjectProperties(eventObject);
+            });
+           
+            $("button").on("click", function(eventObject) {
+                getEventObjectProperties(eventObject);
+            });
+        });
+	</script>
+</head>
+<body>
+    <img id="imgSample" src="images/butterfly3.png"><br>
+
+    Enter Image Title: <input id="txtImageTitle" type="text"><br><br>
+
+    <button id="btnSubmit">Submit</button>
+
+    <button id="btnCancel">Cancel</button><br><br>
+
+    <div id="message"></div>
+</body>
+</html>

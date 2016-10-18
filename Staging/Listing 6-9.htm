@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <style>
+		.list { border:3px double green; width:350px; }
+		.newRecord { font-weight: bold; }
+		.tableHeader { background-color: lightgray; }
+		.listDepartments {width: 200px; }
+    </style>
+    
+	<script>
+		$(function(){
+			$("#btnTestIt").click(function () {
+				var attributesDetail = 
+					"Input Textbox: " +
+					" <b>type:</b> " +  $("#txtName").attr("type") +
+					" <b>id:</b> " +  $("#txtName").attr("id") +
+					" <b>value:</b> " +  $("#txtName").attr("value") +
+					" <b>maxlength:</b> " +  $("#txtName").attr("maxlength") +
+					"<br>" +
+					"Checkbox (1): " +
+					" <b>type:</b> " +  $("#chkMale").attr("type") +
+					" <b>id:</b> " +  $("#chkMale").attr("id") +
+					" <b>name:</b> " +  $("#chkMale").attr("name") +
+					" <b>checked:</b> " +  $("#chkMale").attr("checked") +
+					"<br>" +
+					"Checkbox (2): " +
+					" <b>type:</b> " +  $("#chkFemale").attr("type") +
+					" <b>id:</b> " +  $("#chkFemale").attr("id") +
+					" <b>name:</b> " +  $("#chkFemale").attr("name") +
+					" <b>checked:</b> " +  $("#chkFemale").attr("checked");
+
+				$("#message").prop("innerHTML", attributesDetail);
+			});
+		});
+	</script>
+</head>
+<body>
+	Gender: <input type="radio" name="gender" id="chkMale" checked>Male
+			<input type="radio" name="gender" id="chkFemale">Female <br>
+	Name: 	<input type="text" id="txtName" value="" maxlength="40"><br>
+			<input id="btnTestIt" type="button" value="Test It"><br>
+   
+	<div id="message"></div>
+</body>
+</html>

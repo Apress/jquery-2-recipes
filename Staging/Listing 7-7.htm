@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    
+	<script>
+        $(function() {
+            $("a").click( function(eventObj) {
+                $("#message").append("Executing anchor (A) link click event handler ...<br>");
+                eventObj.preventDefault();
+            });
+
+            $("li").click( function() {
+                $("#message").append("Executing LI click event handler...<br>");
+            });
+
+            $("ul").click( function() {
+                $("#message").append("Executing UL event handler...<br>");
+            });
+
+            $("body").click( function() {
+                $("#message").append("Executing BODY event handler...<br>");
+            });
+
+            $("html").click( function() {
+                $("#message").append("Executing HTML event handler...<br>");
+            });
+
+            $(document).click( function() {
+                $("#message").append("Executing DOCUMENT event handler...<br>");
+            });
+
+            $(window).click( function() {
+                $("#message").append("Executing WINDOW (Browser) event handler...<br>");
+            });
+        });
+	</script>
+</head>
+
+<body>
+	<div><strong>Departments:</strong></div>
+    <ul id="listDepartments">
+        <li><a href="department.htm"><strong>Sales</strong></a></li>
+        <li>Marketing</li>
+        <li>Technology</li>
+        <li>Customer Support</li>
+    </ul>
+    
+    <div id="message"></div>
+</body>
+</html>

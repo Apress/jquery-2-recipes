@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    
+	<script>
+		$(function() {
+			$("#btnReduceOpacity").click( function() {
+				$("img").css("opacity", "0.3");
+			});
+
+            $("#btnReset").click( function() {
+				$("img").css("opacity", "1.0");
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="livingBeings">
+        <div id="animals">
+			<img src="images/Cat.png"/>
+            <img src="images/Dog.png"/>
+            <img src="images/Elephant.png"/>
+            <img src="images/Hippopotamus.png"/>
+            <img src="images/Panda.png"/>
+		</div>
+		<div id="birds">
+            <img src="images/Bird1.png"/>
+            <img src="images/Bird2.png"/>
+            <img src="images/Owl.png"/>
+            <img src="images/Penguin1.png"/>
+            <img src="images/Penguin2.png"/>
+		</div>
+		<div id="insects">
+            <img src="images/Butterfly1.png"/>
+            <img src="images/Butterfly2.png"/>
+            <img src="images/Butterfly3.png"/>
+            <img src="images/Grasshopper.png"/>
+            <img src="images/LadyBug.png"/>
+		</div>
+		<div id="seaAnimals">
+            <img src="images/Fish2.png"/>
+            <img src="images/Dolphin.png"/>
+            <img src="images/Fish1.png"/>
+            <img src="images/JellyFish.png"/>
+            <img src="images/WireShark.png"/>
+        </div>
+    </div>
+	
+    <input id="btnReduceOpacity" type="button" value="Reduce Opacity"> 
+    <input id="btnReset" type="button" value="Reset">
+</body>
+</html>

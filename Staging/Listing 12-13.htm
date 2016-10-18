@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jqWidgets - TreeGrid</title>
+
+    <link rel="stylesheet" href="styles/jqx.base.css"/>
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jqx-all.js"></script>
+
+    <script>
+        var employeeData = { 
+           "employees": [
+				{"employeeId":1, "managerId": 0, "name":"Mark Johnson", "department":"Finance", "salary":"$285,000"},
+				{"employeeId":2, "managerId": 1, "name":"Jane Smith", "department":"Marketing", "salary":"$95,000"},
+				{"employeeId":3, "managerId": 1, "name":"John Smith", "department":"Technology", "salary":"$90,000"},
+				{"employeeId":4, "managerId": 1, "name":"Brian Adam", "department":"Sales", "salary":"$72,000"},
+				{"employeeId":5, "managerId": 1, "name":"Mary Jones", "department":"Support", "salary":"$60,000"},
+				{"employeeId":6, "managerId": 3, "name":"Michael Jefferson", "department":"Technology", "salary":"$85,000"}
+            ]
+        }
+
+        $(function () {
+            // Set the data source
+            var source = {
+                datatype: "json",
+                datafields: [
+                    { name: 'employeeId', type: 'int' },
+                    { name: 'managerId', type: 'int' },
+                    { name: 'name', type: 'string' },
+                    { name: 'department', type: 'string' },
+                    { name: 'salary', type: 'string' }
+                ],
+                hierarchy: {
+					keyDataField: { name: 'employeeId' },
+                    parentDataField: { name: 'managerId' }
+                },
+                id: 'employeeId',
+                localdata: employeeData
+            };
+           
+            // Get the data
+            var dataAdapter = new $.jqx.dataAdapter(source);
+            
+            // Create Tree Grid with the data
+            $("#employeesTreeGrid").jqxTreeGrid({
+                width: 355,
+                source: dataAdapter,
+                columns: [
+					{ text: 'Employee Name', dataField: 'name', width: 175 },
+					{ text: 'Department', dataField: 'department', width: 100 },
+					{ text: 'Salary', dataField: 'salary', width: 80, align: 'right', cellsalign: 'right'}
+                ]
+            });
+        });
+    </script>
+</head>
+<body>
+	<div id="employeesTreeGrid"></div>
+</body>
+</html>

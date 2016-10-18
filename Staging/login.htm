@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="styles/jquery.mobile-1.4.3.min.css" />
+      
+	<style>
+		#footerMsg { font-size: 12px; }
+	</style>
+       
+	<script type="text/javascript" src="scripts/jquery-2.1.0.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery.mobile-1.4.3.min.js"></script>
+      
+	<script>
+		$(function() {
+			$("#btnLogin").click(function (){
+				if ( $("#txtUserId").val().toLowerCase() == "testuser" && $("#txtPassword").val() == "test123" ) {
+					location.href = "departments.htm";
+				} else {
+					$( ":mobile-pagecontainer" ).pagecontainer( "change", "#loginErrorDialog", { 
+						role: "dialog", transition: "pop" 
+					} );
+				}
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<div data-role="page" id="homePage">
+
+        <div data-role="header" data-position="fixed" data-theme="b">
+			<a href="index.html"><img src="images/logo.png" style="height:15px; width:15px"></a>
+            <h1>Acme</h1>
+        </div>
+
+        <div data-role="main" class="ui-content" >
+            <input type="text" id="txtUserId" placeholder="Enter User ID" data-mini="true">
+            <input type="password" id="txtPassword" name="txtPassword" placeholder="Enter Password" data-mini="true">
+            
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <input type="checkbox" id="chkSaveUserId" name="chkSaveUserId"  data-mini="true">
+                    <label for="chkSaveUserId"  data-mini="true">Save User ID.</label>
+                </div>
+            
+                <div class="ui-block-b">
+                    <button id="btnLogin" class="ui-btn-b ui-corner-all ui-shadow" data-mini="true" 
+                        data-theme="b">Login</button>
+                </div> 
+            </div>
+        </div>
+              
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <h1 id="footerMsg">&#0169; 2014 Acme Corporation. All rights reserved.</h1>
+        </div>
+    </div>
+      
+    <div  data-role="dialog" id="loginErrorDialog">
+        <div data-role="header">
+			<h1>Login Status</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <p>Failed to Login. Please try again.
+        </div>
+    </div>
+</body>
+</html>

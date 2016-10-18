@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    
+	<script>
+        $(function() {
+            $("#btnTestIt").click(function() {
+				$("td:empty").css("background-color", "yellow")
+            });
+        });
+    </script>
+</head>
+<body>
+    <table>
+        <tr><td>John Smith</td><td>Marketing</td></tr>
+        <tr><td>Jane Smith</td><td></td></tr>
+        <tr><td>Mike Jordon</td><td>Technology</td></tr>
+        <tr><td>Mary Jones</td><td>Marketing</td></tr>
+    </table><p>
+    
+	<input id="btnTestIt" type="button" value="Test It"> 
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>jqWidget - Form</title>
+
+    <link rel="stylesheet" href="styles/jqx.base.css"/>
+    <link rel="stylesheet" href="styles/jqx.energyblue.css"/>
+
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jqx-all.js"></script>
+
+    <style>
+        form {
+			border:3px double green;
+            width: 500px;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            background-color: lightyellow;
+        }
+
+        label {
+            float:left;
+            display:block;
+            width: 125px;
+            font-weight: bold;
+        }
+
+        fieldset {
+            padding: 5px;
+            border: 0px;
+        }
+    </style>
+
+    <script>
+        $(function () {       
+            $("#switchActive").jqxSwitchButton({ theme: "energyblue", height: 25, width: 75, checked: true, onLabel: "Yes", offLabel: "No" });
+            $("#txtEmployeeName").jqxInput({ placeHolder: "Enter Employee Name"});
+            $("#hireDate").jqxDateTimeInput({ width: '100px', height: '25px',  formatString: "MM/dd/yyyy" });
+         
+            var departments = new Array("Finance", "Technology", "Support", "Sales");
+          
+            $("#txtDepartment").jqxInput({ placeHolder: "Enter a department", height: 25, width: 200, minLength: 1, source: departments });
+         
+            $("#txtEMailAddress").jqxInput();
+            $("#btnGroupGender").jqxButtonGroup({ theme: "energyblue", mode: 'radio' });
+            $("#rdoFemale").jqxRadioButton({width: 100, groupName :"Gender" });
+            $("#rdoMale").jqxRadioButton({width: 100, groupName :"Gender" });
+
+            $("#btnGroupExperience").jqxButtonGroup({ theme: "energyblue", mode: 'checkbox' });
+            $("#chkTechnology").jqxCheckBox({width: 100});
+            $("#chkSales").jqxCheckBox({width: 100});
+            $("#chkMarketing").jqxCheckBox({width: 100});
+          
+            $("#txtSSN").jqxPasswordInput({ placeHolder: "Enter SSN", height: 25, width: 200});
+          
+            $("#txtPhoneNumber").jqxMaskedInput({height: 25, width: 200, mask: '(###)###-####' });
+          
+            $("#salary").jqxNumberInput({height: 25, width: 200, decimal:0, symbol: '$'});
+          
+            $("[type='button']").jqxButton({theme:"energyblue"});
+          
+            $("#btnSubmit").on('click', function (event) {
+
+				if ($('#frmEmployee').jqxValidator('validate')) {
+					var msg = "Form will be submitted with the following values:\n\n";
+					msg += "Active: " + $("#switchActive").val() + "\n";
+					msg += "Employee Name: " + $("#txtEmployeeName").val() + "\n";
+					msg += "Hire Date: " + $("#hireDate").val() + "\n";
+					msg += "Department: " + $("#txtDepartment").val() + "\n";
+					msg += "EMail Address: " + $("#txtEMailAddress").val() + "\n";
+					msg += "Gender: Female:" + $("#rdoFemale").jqxRadioButton('checked') + 
+							" Male:" + $("#rdoMale").jqxRadioButton('checked') + "\n";
+					msg += "Experience: " + $("#btnGroupExperience").val() + "\n";
+					msg += "SSN: " + $("#txtSSN").val() + "\n";
+					msg += "Phone Number: " + $("#txtPhoneNumber").val() + "\n";
+					msg += "Salary: " + $("#salary").val();
+         
+					alert(msg);
+				} else {
+					alert("Please resolve validation issues.");
+				}
+			});
+         
+			$("#btnCancel").on('click', function (event) {
+				alert("Form is cancelled.");
+			});
+          
+			// Validator
+			$('#frmEmployee').jqxValidator({ rules: [
+				{ input: '#txtEmployeeName', message: 'The Employee Name is required.', action: 'keyup', rule: 'required' },
+				{ input: '#txtEMailAddress', message: 'Invalid EMail Address.', action: 'keyup', rule: 'email'}, 
+				{ input: '#txtSSN', message: 'Invalid SSN.', action: 'keyup', rule: 'ssn'},
+				{ input: '#txtSSN', message: 'Invalid SSN.', action: 'keyup', rule: 'required'},
+				], 
+				theme: 'energyblue'
+			});  
+        });
+    </script>
+</head>
+<body>
+    <h3>Employee Form</h3>
+    <form id="frmEmployee">
+        <fieldset>
+            <label>Active?</label>
+            <div id='switchActive'></div>
+        </fieldset>
+
+        <fieldset>
+            <label>Employee Name: </label>
+            <input type="text" id="txtEmployeeName"/><br>
+        </fieldset>
+   
+        <fieldset>
+            <label>Hire Date: </label>
+            <div id='hireDate'></div>
+        </fieldset>
+   
+        <fieldset>
+            <label>Department: </label>
+            <input type="text" id="txtDepartment"/><br>
+        </fieldset>
+
+        <fieldset>
+            <label>EMail Address: </label>
+            <input type="text" id="txtEMailAddress"/><br>
+        </fieldset>
+      
+        <fieldset>
+			<label>Gender:</label>
+            <div id='btnGroupGender'>
+				<div id='rdoFemale'>Female</div>
+				<div id='rdoMale'>Male</div>
+            </div>
+        </fieldset>
+        
+        <fieldset>
+            <label>Experience:</label>
+            <div id='btnGroupExperience'>
+                <div id='chkTechnology'>Technology</div>
+                <div id='chkSales'>Sales</div>
+                <div id='chkMarketing'>Marketing</div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <label>SSN:</label>
+            <input type="password" id="txtSSN"/><br>
+        </fieldset>
+   
+        <fieldset>
+            <label>Phone Number:</label>
+            <input type="text" id="txtPhoneNumber"/><br>
+        </fieldset>
+
+        <fieldset>
+            <label>Salary:</label>
+            <div id='salary'></div><br>
+        </fieldset>
+   
+        <fieldset>
+            <input type="button" value="Submit" id='btnSubmit' />
+            <input type="button" value="Cancel" id='btnCancel' />   
+        </fieldset>
+    </form>
+</body>
+</html>

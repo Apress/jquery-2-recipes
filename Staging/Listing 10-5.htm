@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <link rel="stylesheet" href="styles/jquery-ui.min.css">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
+
+    <script>
+		$(function() {
+			$("input").tooltip();
+
+            $( "li" ).tooltip({
+				items: "li",
+				content: function() {
+                    var element = $( this );
+
+                    if ( element.is( "[title]" ) ) {
+						return element.attr( "title" );
+                    } else if ( element.is( "li" ) ) {
+						var countryName = element.text();
+                        return "<img src='images/" + countryName + ".png'>";
+                    }
+				}
+			});
+		});
+	</script>
+</head>
+
+<body>
+    <div class="ui-widget">
+		Name: <input type="text" title="LastName, FirstName"><br><br>
+
+		G8 Countries:
+		<ul>
+            <li>Canada</li>
+            <li title="(2014) President François Hollande">France</li>
+            <li title="(2014) Chancellor Angela Merkel">Germany</li>
+            <li>Italy</li>
+            <li title="(2014) Prime Minister Shinzō Abe">Japan</li>
+            <li title="(2014) President Vladimir Putin">Russia</li>
+            <li title="(2014) Prime Minister David Cameron">United Kingdom</li>
+            <li title="(2014) President Barack Obama">United States</li>
+		</ul>
+	</div>
+</body>
+</html>

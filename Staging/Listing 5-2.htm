@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script src="scripts/jquery-2.1.0.min.js"></script>
+   
+	<style>
+		.list {
+			border:3px double green;
+			width:350px;
+		}
+		.tblHdr {
+			background-color: lightgray;
+		}
+		.listDepartments {
+			width: 200px;
+		}
+	</style>
+   
+	<script>
+		$(function(){
+			$("#btnTestIt").click(function () {
+				$(".list").contents().each(function() { 
+					alert($(this).text());
+                });
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="list">
+        Departments:
+		<ul>
+			<li>Marketing</li>
+			<li>Sales</li>
+			<li>Technology</li>
+			<li>Customer Support</li>
+		</ul>
+	</div><br>
+   
+	<input id="btnTestIt" type="button" value="Test It">
+</body>
+</html>

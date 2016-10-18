@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script src="scripts/jquery-2.1.0.min.js"></script>
+   
+	<style>
+		.highlight {
+			width: 150px;
+			border: 3px double green;
+			background-color: lightyellow;
+		}
+	</style>
+   
+	<script>
+		$(function(){
+			$("#btnTestIt1").click(function () {
+				$("#lstDepartments").after("<b>- Implementation</b>");
+			});
+
+			$("#btnTestIt2").click(function () {
+				$("#lstDepartments").append("<b>- Production Support<b>");
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="lstDepartments" class="highlight">
+		- Marketing<br>
+		- Sales<br>
+		- Technology<br>
+		- Customer Support<br>
+	</div><br><br> 
+   
+	<input id="btnTestIt1" type="button" value="Test It (After)">
+	<input id="btnTestIt2" type="button" value="Test It (Append)">
+</body>
+</html>

@@ -1,0 +1,9 @@
+{ 
+	"departments": [
+		{"departmentName":"Marketing"},
+		{"departmentName":"Technology"},
+		{"departmentName":"Sales"},
+		{"departmentName":"Support"},
+		{"departmentName":"Implementation"}
+	]
+}

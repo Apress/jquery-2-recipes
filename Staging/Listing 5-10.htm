@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script src="scripts/jquery-2.1.0.min.js"></script>
+   
+	<style>
+		table {
+			border:3px double green;
+		}
+		.tblHdr {
+			background-color: lightgray;
+		}
+		.newRecord {
+			background-color: lightyellow;
+		}
+		.tableFooter {
+			background-color: lightgray;
+		}
+	</style>
+   
+	<script>
+		$(function(){
+			$("#btnTestIt").click(function () {
+				$("tr.newRecord").siblings().not(".tblHdr, .tableFooter").css("background-color", "lightblue");
+			});
+		});
+	</script>
+</head>
+<body>
+	<strong>Employees:</strong>
+	<table id="listEmployees">
+		<tr class="tblHdr">
+			<td>Employee Name</td><td>Department Name</td><td>Salary</td>
+		</tr>
+		<tr>
+			<td>Jane Smith</td><td>Marketing</td><td>$95,000</td>
+		</tr> 
+		<tr class="newRecord">
+			<td>John Smith</td><td>Technology</td><td>$90,000</td>
+		</tr> 
+		<tr>
+			<td>Brian Adam</td><td>Sales</td><td>$72,000</td>
+		</tr> 
+		<tr>
+			<td>Mary Jones</td><td>Customer Support</td><td>$60,000</td>
+		</tr> 
+		<tr>
+			<td>Michael Jefferson</td><td>Technology</td><td>$85,000</td>
+		</tr> 
+		<tr class="tableFooter">
+			<td colspan="2">Total Salary:</td><td>$373,000</td>
+		</tr>
+	</table><br>
+   
+	<input id="btnTestIt" type="button" value="Test It">
+</body>
+</html>

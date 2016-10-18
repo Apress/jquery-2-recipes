@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	  
+    <script>
+		function submitForm() {
+			var firstName = document.getElementById("txtFirstName");
+
+            if (firstName.value == "") {
+				alert("Please enter First Name before submitting");
+				return false;
+            } else {
+				// Perform some action
+				alert("Form is successfully submitted");
+				return true;
+			}
+        }
+     </script>
+</head>
+<body>
+	<form>
+		First Name: <input id="txtFirstName" type="text"><br><br>
+        <input type="button" value="Submit" onClick="submitForm()">
+	</form>
+</body>
+</html>

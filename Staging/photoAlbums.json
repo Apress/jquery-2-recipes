@@ -1,0 +1,15 @@
+{ 
+	"albums": [
+		{"albumName":"Birds", "photoTitle":"Bird 1", "imageFile":"Bird1.png"},
+		{"albumName":"Birds", "photoTitle":"Bird 2", "imageFile":"Bird2.png"},
+		{"albumName":"Insects", "photoTitle":"Butterfly 1", "imageFile":"Butterfly1.png"},
+		{"albumName":"Insects", "photoTitle":"Butterfly 2", "imageFile":"Butterfly2.png"},
+		{"albumName":"Insects", "photoTitle":"LadyBug", "imageFile":"LadyBug.png"},
+		{"albumName":"Animals", "photoTitle":"Cat", "imageFile":"Cat.png"},
+		{"albumName":"Animals", "photoTitle":"Dog", "imageFile":"Dog.png"},
+		{"albumName":"Animals", "photoTitle":"Panda", "imageFile":"Panda.png"},
+		{"albumName":"Sea Animals", "photoTitle":"Dolphin", "imageFile":"Dolphin.png"},
+		{"albumName":"Sea Animals", "photoTitle":"Fish 1", "imageFile":"Fish1.png"},
+		{"albumName":"Sea Animals", "photoTitle":"Jelly Fish", "imageFile":"JellyFish.png"}
+	]
+}

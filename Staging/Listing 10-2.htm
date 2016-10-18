@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/jquery-ui.min.css">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
+    
+    <style>
+		#txtAge { width:50px; }
+    </style>
+
+    <script>
+		$(function() {
+            $("#txtAge").spinner({
+                min:18,
+                max:70
+            });
+
+            $("#txtAge").spinner("value", 25);
+		});
+	</script>
+</head>
+<body>
+    <div class="ui-widget">
+		<label for="txtAge">Age:</label>
+		<input id="txtAge">
+    </div>
+</body>
+</html>     

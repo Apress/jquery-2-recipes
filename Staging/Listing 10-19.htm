@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <title>Photo Album</title>
+
+    <link rel="stylesheet" href="styles/jquery-ui.min.css">
+
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
+
+    <style>
+		.album li { float: left; width: 96px; padding: 4px; margin: 4px; text-align: center; }
+		.album li h5 { margin-top:2px; cursor: move; }
+		.album li img { width: 100%; cursor: move; }
+
+		#print {width: 90%; height: 400px; padding: 10px; background-color:lightyellow}
+
+		div { margin-left: auto; margin-right: auto; }
+	</style>
+
+    <script>
+		$(function() {
+            $("#btnPrint").button();
+
+            // Get Albums
+            $.ajax({
+				type: "GET", 
+				url: "photoAlbums.json",
+				dataType: "json",
+				success: getPhotoAlbums, 
+				error: reportError
+			});
+
+            $("#btnPrint").click(function(){
+				var printPhotos = "Following photos are selected to be printed: <br>";
+
+				$("#print img").each(function (obj) {
+					printPhotos += $(this).attr("src") + "<br>";
+				});
+
+				$("#printList").html(printPhotos);
+
+				$("#printList").dialog({
+					modal: true,
+					buttons: {
+						"Ok": function() {
+							$( this ).dialog( "close" );
+						}
+					}
+                });
+			});
+		});
+
+		// on success
+		function getPhotoAlbums(returnedData, status) {
+            var htmlString = "";
+
+            $.each(returnedData.albums, function(obj, currentElement){
+				htmlString += '<li class="ui-widget-content ui-corner-all" style="width:130px" >';
+				htmlString += '<h5 class="ui-widget-header" >' + currentElement.photoTitle + '</h5>';
+				htmlString += '<img src="images/' + currentElement.imageFile + '" alt="' +
+								currentElement.photoTitle + '" width="96" height="72">';
+				htmlString += '<div id="printCheckbox" class="ui-widget-content" style="font-size:10px">';
+				htmlString += '<input type="checkbox">Print</div></li>';
+			});
+
+			$("#album").append(htmlString);
+			dragAndDrop();
+		}
+
+		// On error
+		function reportError(request, status, errorMsg) {
+            $("#statusMessage").append("Status: " + status + "<br>Error Message: " + errorMsg);
+		}
+
+		function dragAndDrop() {
+            // Make the photos in the album as draggable
+            $( "li").draggable({
+                revert: "invalid", 
+                helper: "clone",
+				cursor: "move"
+			});
+
+            // Make the print droppable
+            $("#print").droppable({
+				accept: "#album > li",
+				drop: function( event, ui ) {
+                    printPhoto( ui.draggable ); 
+				}
+			});
+
+			function printPhoto( photoItem ) {
+				photoItem = photoItem.clone();
+
+				photoItem.find( "#printCheckbox" ).replaceWith('<div class="ui-widget-content" style="font-size:10px"><input  id="removeCheckbox" type="checkbox">Remove</div>');
+
+				$("#print > ul").append(photoItem).show(function() {
+                    photoItem
+						.animate({ width: "72px" })
+						.find( "img" )
+						.animate({ height: "54px" });
+				});
+            }
+
+            $( "#album" ).click(function( event ) {
+				target = $( event.target );
+				printPhoto(target.parents("li"));
+            });
+
+			$( "#print" ).click(function( event ) {
+				target = $( event.target );
+
+				if ( target.is(":checkbox") ) {
+					target.parents("li").remove();
+				}
+            });
+		}
+    </script>
+</head>
+
+<body>
+	<div class="ui-widget ui-helper-clearfix">
+		<ul id="album" class="album ui-helper-reset"></ul>
+	</div><br>
+
+    <div id="print" class="ui-corner-all" style="border:3px double green">
+		<h4 class="ui-widget-header"><span class="ui-icon ui-icon-print"></span> Print</h4>
+		<ul class="album ui-helper-reset"></ul>
+	</div><br>
+
+    <button id="btnPrint" style="margin-left:50px">Send to Print</button><br>
+
+    <div id="statusMessage"></div>
+
+    <div id="printList" title="Print Photos"></div>
+</body>
+</html>

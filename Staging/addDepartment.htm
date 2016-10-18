@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="styles/jquery.mobile-1.4.3.min.css" />    
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jquery.mobile-1.4.3.min.js"></script>
+</head>
+
+<body>
+	<div data-role="page">
+		<div data-role="header" data-theme="b" data-add-back-btn="true">
+			<h1>New Department</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<form id="frmDepartment">
+				<div class="ui-field-contain">
+					<label for="txtDepartmentName">Name:</label>
+					<input type="text" id="txtDepartmentName" name="txtDepartmentName" 
+						data-mini="true">
+				</div>
+       
+				<fieldset data-role="controlgroup" data-type="horizontal"  data-mini="true" data-theme="b">
+					<a href="#popupName"  data-rel="popup" class="ui-btn">Submit</a>
+					<a href="departments.htm" class="ui-btn">Cancel</a>
+				</fieldset>
+			</form>
+		</div>
+
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h1 id="footerMsg">&#0169; 2014 Acme Corporation. All rights reserved.</h1>
+		</div>
+
+		<div data-role="popup" id="popupName" class="ui-content" data-position-to="window" 
+            data-transition="flip" data-theme="b" data-overlay-theme="b">
+  
+			<a href="#" data-rel="back" class="ui-btn ui-corner-all  ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>  
+				New department <br>record is created.<br>
+		</div>
+	</div>
+</body>
+</html>

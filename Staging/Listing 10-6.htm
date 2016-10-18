@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <link rel="stylesheet" href="styles/jquery-ui.min.css">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
+
+    <style>
+		#toolbar { padding: 4px; display: inline-block; }
+	</style>
+
+    <script>
+		$(function() {
+            <!-- Button -->
+            $( "input[type=submit]").button();
+
+            $( "#btnHome").button({
+				icons: {
+					primary: "ui-icon-home"
+				}
+			});
+
+            $( "#googleLink").button();
+
+            <!-- Toggle -->
+            $( "#check" ).button();
+
+            <!-- Checkboxes -->
+            $( "#hobbies" ).buttonset();
+
+            <!-- Radiobuttons -->
+            $( "#gender" ).buttonset();
+
+            <!-- Toolbars related -->
+            $( "#btnFile" ).button();
+            $( "#btnEdit" ).button();
+            $( "#btnSettings" ).button();
+            $( "#btnHelp" ).button();
+		});
+	</script>
+</head>
+<body>
+	<div class="ui-widget">
+		Input HTML Element with type Button, Submit, or Reset<br>
+		<input type="Submit" value="Submit"><br><br>
+
+		Button<br>
+		<button id="btnHome">Home</button><br><br>
+
+		Link<br>
+		<a id="googleLink" href="http://google.com" target="_blank">Google</a><br><br>
+
+		Checkbox<br>
+		<!--  Toggle -->
+		<input type="checkbox" id="check"><label for="check">Toggle</label><br><br>
+
+		Checkboxes in a group<br>
+		<!--  Checkboxes -->
+		Hobbies:
+		<div id="hobbies">
+            <input type="checkbox" id="check1"><label for="check1">Traveling</label>
+            <input type="checkbox" id="check2"><label for="check2">Reading</label>
+            <input type="checkbox" id="check3"><label for="check3">Technology</label>
+            <input type="checkbox" id="check4"><label for="check4">Sports</label>
+		</div><br>
+
+		Radiobuttons<br>
+		Gender:
+		<div id="gender">
+            <input type="radio" id="male" name="radio"><label for="male">Male</label>
+            <input type="radio" id="female" name="radio" checked="checked"><label for="female">Female</label>
+		</div> <br>
+
+		Toolbar (using buttons)<br>
+		<div id="toolbar" class="ui-widget-header ui-corner-all">
+            <button id="btnFile">File</button>
+            <button id="btnEdit">Edit</button>
+            <button id="btnSettings">Settings</button>
+            <button id="btnHelp">Help</button>
+		</div>
+	</div>
+</body>
+</html>

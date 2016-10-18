@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="styles/jquery.mobile-1.4.3.min.css" />
+      
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jquery.mobile-1.4.3.min.js"></script>
+</head>
+
+<body>
+    <!--  Page 1 -->
+    <div data-role="page">
+        <div data-role="header">
+            <h1>Page Header</h1>
+        </div>
+
+        <div data-role="panel" id="myPanel" data-display="overlay"  data-position="right" data-position-fixed="true" data-theme="b">
+            <h3>Available Options</h3>
+            <a href="#myNewPage" class="ui-btn" data-rel="close">Option 1</a>
+            <a href="#" class="ui-btn" data-rel="close">Option 2</a>
+            <a href="#" class="ui-btn" data-rel="close">Option 3</a>
+            <a href="#" class="ui-btn" data-rel="close">Option 4</a>
+        </div>
+        
+        <div data-role="main" class="ui-content">
+            <p>Content here...</p>
+            <a href="#myPanel" class="ui-btn ui-btn-inline">Show Panel</a>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <h1>Page Footer</h1>
+        </div>
+	</div>
+      
+    <!--  Page 2 -->
+    <div data-role="page" id="myNewPage">
+        <div data-role="header">
+            <h1>New Page Header</h1>
+		</div>
+	</div>
+</body>
+</html>

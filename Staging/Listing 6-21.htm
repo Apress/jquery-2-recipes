@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script src="scripts/jquery-2.1.0.min.js"></script>
+	
+	<style>
+        .highlight {
+			width: 300px;
+            border: 3px double green;
+            background-color: lightyellow;
+        }   
+	</style>
+	
+	<script>
+		$(function(){
+			$("#btnTestIt").click(function () {
+				$("ul").wrap("<div class='highlight'></div>");
+			});
+		});
+	</script>
+</head>
+<body>
+	<ul>
+		<li>Marketing</li>
+		<li>Sales</li>
+		<li>Technology</li>
+		<li>Customer Support</li>
+	</ul>
+   
+	<input id="btnTestIt" type="button" value="Test It">
+</body>
+</html>

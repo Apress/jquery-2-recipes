@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="styles/jquery.mobile-1.4.3.min.css" />
+      
+    <style>
+        #footerMsg {font-size: 12px;}
+              
+        .ui-slider-switch { width: 100px !important }
+    </style>
+      
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jquery.mobile-1.4.3.min.js"></script>
+</head>
+
+<body>
+    <div data-role="page">
+        <div data-role="header">
+			<h1>Employee Form</h1>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <form id="frmEmployee">
+                <div class="ui-field-contain">
+                    <label for="selActive" class="ui-hidden-accessible"></label>
+                    <select id="selActive" name="txtDepartmentName" data-role="slider" data-mini="true">
+                        <option value="A">Active</option>
+                        <option value="I">Inactive</option>
+                    </select>
+                </div>
+            
+                <div data-role="collapsibleset">
+                    <div data-role="collapsible"  data-inset="false"  data-collapsed-icon="carat-r" 
+                      data-expanded-icon="carat-d"  data-iconpos="right" data-mini="true" data-content-theme="b">
+                        <h2>Basic Information</h2>
+                        <div class="ui-field-contain">
+							<label for="txtEmployeeName">Name:</label>
+							<input type="text" id="txtEmployeeName" name="txtEmployeeName" data-mini="true">
+                        </div>
+       
+                        <div class="ui-field-contain">
+							<label for="selDepartmentName">Department:</label>
+							<select id="selDepartmentName" name="selDepartmentName" data-mini="true">
+								<option value=""></option>
+								<option value="Marketing">Marketing</option>
+								<option value="Sales">Sales</option>
+								<option value="Support"></option>
+								<option value="Technology"></option>
+							</select>
+                        </div>
+            
+                        <div class="ui-field-contain">
+                            <label for="sldAge">Age:</label>
+                            <input  type="range" name="sldAge" id="sldAge" min="18" max="80" 
+                                data-mini="true"  data-highlight="true" data-track-theme="a">
+						</div>
+
+                        <div class="ui-field-contain">
+                            <label for="txtSalary">Salary:</label>
+                            <input type="number" id="txtSalary" name="txtSalary" data-mini="true">
+						</div>
+            
+                        <div class="ui-field-contain">
+                            <label for="txtHireDate">Hire Date:</label>
+                            <input type="date" id="txtHireDate" name="txtHireDate" data-role="date" data-mini="true">
+						</div>
+            
+                        <div class="ui-field-contain">
+							<fieldset data-role="controlgroup" data-type="horizontal"  data-mini="true">
+								<legend>Gender:</legend>
+    
+                                <input type="radio" name="rdoGender" id="rdoMale" checked>
+                                <label for="rdoMale">Male</label>
+    
+                                <input type="radio" name="rdoGender" id="rdoFemale">
+                                <label for="rdoFemale">Female</label>
+							</fieldset>
+						</div>
+                    </div>
+    
+                    <div data-role="collapsible"  data-inset="false"  data-collapsed-icon="carat-r" 
+                      data-expanded-icon="carat-d"  data-iconpos="right" data-mini="true" data-content-theme="b">
+                        <h2>Experience</h2>
+                        <fieldset data-role="controlgroup" data-mini="true">
+							<legend>Experience:</legend>
+                            <input type="checkbox" name="chkProgramming" id="chkProgramming">
+                            <label for="chkProgramming">Programming</label>
+                            <input type="checkbox" name="chkAnalysis" id="chkAnalysis">
+                            <label for="chkAnalysis">Analysis</label>
+                            <input type="checkbox" name="chkSales" id="chkSales">
+                            <label for="chkSales">Sales</label>  
+                            <input type="checkbox" name="chkBudgetPlanning" id="chkBudgetPlanning">
+                            <label for="chkBudgetPlanning">Budget Planning</label>  
+                        </fieldset>
+
+                        <div class="ui-field-contain">
+                            <label for="selIndustryExperience">Industry Experience:</label>
+                            <select id="selIndustryExperience" name="selIndustryExperience" 
+                                 data-mini="true" multiple>
+                                <option value="Auto">Auto</option>
+                                <option value="Financial">Financial</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Insurance">Insurance</option>
+                                <option value="Technology">Technology</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div data-role="collapsible"  data-inset="false"  data-collapsed-icon="carat-r" 
+                      data-expanded-icon="carat-d"  data-iconpos="right" data-mini="true" data-content-theme="b">
+                        <h2>Miscellaneous</h2>
+                        <div class="ui-field-contain">
+                            <label for="txtComments">Comments:</label>
+                            <textarea id="txtComments" name="txtComments" data-mini="true"></textarea>
+                        </div>
+                    </div>
+                </div><br><br>
+
+                <fieldset data-role="controlgroup" data-type="horizontal"  data-mini="true" data-theme="b">
+                    <a href="#" class="ui-btn">Submit</a>
+                    <a href="#" class="ui-btn">Cancel</a>
+                </fieldset>
+            </form>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <h1 id="footerMsg">&#0169; 2014 Acme Corporation. All rights reserved.</h1>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script src="scripts/jquery-2.1.0.min.js"></script>
+   
+	<script>
+		$(function() {
+			var currentDateTime = document.getElementById("currentDatetime");
+            $(currentDateTime).prop("innerHTML", new Date());
+		});
+	</script>
+</head>
+<body>
+	<div id="currentDatetime"></div>
+</body>
+</html>

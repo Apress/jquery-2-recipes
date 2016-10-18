@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    
+	<style>
+		div {
+            border:3px double green;
+            width: 500px;
+            background-color: lightcyan;
+		}
+
+		form {
+            border:3px double green;
+            width: 400px;
+            padding: 20px;
+            background-color: lightyellow;
+		}
+
+		table {
+            border:0px;
+		}
+
+		td {
+            padding-right: 10px;
+            padding-left: 10px;
+		}
+
+		label {
+            float:left;
+            display:block;
+            width: 250px;
+            font-weight: bold;
+		}
+
+		.header {
+            font-weight: bold;
+            background-color: lightgray;
+		}
+
+		.evenRow {
+            background-color: lightyellow;
+		}
+          
+		.oddRow {
+            background-color: lightblue;
+		}
+
+		.errMsg {
+            background-color: orange;
+            color: white;
+            font-weight: bold;
+            width: 600px;
+		}
+    </style>
+
+    <script>
+        function processData(returnedData, status) {
+            $("#ajaxStatusMessage").append("Status: " + status + " <br>");
+    
+            var tableRecord="";
+            var enteredDepartment = $("#txtDepartment").val().toLowerCase().trim();
+            var enteredSalary = 0;
+
+			if ($("#txtSalary").val() != "") {
+                enteredSalary = parseFloat($("#txtSalary").val());
+			}
+             
+            $("#tblEmployee").append("<tr><td>Employee Name</td><td>Department</td><td>Salary</td>");
+
+            for (var i=0; i < returnedData.employees.length; i++) {
+				var employee = returnedData.employees[i];
+
+				var salary = parseFloat(employee.salary.replace("$",""));
+				var department = employee.department.toLowerCase().trim();
+
+				// Filter records
+				if (salary >= enteredSalary && (enteredDepartment == "" || enteredDepartment == department)) {
+					$("#tblEmployee").append("<tr><td>" + employee.employeeName + 
+                      "</td><td>" + employee.department + 
+                      "</td><td>" + employee.salary + "</td></tr>"); 
+				}
+            }
+
+            $("tr").eq(0).addClass("header");
+            $("tr:even:gt(0)").addClass("evenRow");
+            $("tr:odd").addClass("oddRow");
+		}
+
+		function reportError(request, status, errorMsg) {
+            $("#ajaxStatusMessage").append("Status: " + status + "<br>Error Message: " + errorMsg);
+            $("#ajaxStatusMessage").addClass("errMsg");
+		}
+ 
+		$(function () {
+            $("#btnSubmit").click( function (eventObj) {
+				eventObj.preventDefault();
+
+				$.ajax({
+					type: "GET", 
+					url: "employees.json",
+					data: $("form").serialize(),
+					dataType: "json",
+					success: processData, 
+					error: reportError
+				});
+
+				$("#ajaxStatusMessage").append("Parameter Sent to the server: " + $("form").serialize() + "<br>");
+            });
+		});
+	</script>
+</head>
+
+<body>
+    <h4>Employee Search Criteria:</h4>
+    <form id="frmSearch">
+		<label for="txtDepartment">Department Name:</label>
+		<input type="text" id="txtDepartment" name="txtDepartment"><br>
+
+		<label for="txtSalary">Salary (greater than or equal to):</label>
+		<input type="text" id="txtSalary" name="txtSalary"><br><br>
+
+		<button id="btnSubmit">Submit</button>
+    </form><br><br>
+ 
+    <div id="ajaxStatusMessage"></div><br>
+ 
+    Search Result:
+    <table id="tblEmployee"></table><br><br>
+</body>
+</html>

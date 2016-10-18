@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    
+	<style>
+		div {
+			border:3px double green;
+            width: 50px;
+            height: 50px;
+            position:absolute;
+            left:100px;
+            top:50px;
+            background-color: yellow;
+		}
+	</style>
+
+    <script>
+		$(function () {
+            $("#animate").click( function() {
+				$("#box").animate({left:"+=300", opacity: 0.6}, 2000, 'linear')
+                    .animate({top: "+=200", opacity: 0.2}, 2000, 'linear')
+                    .slideUp(1000)
+                    .slideDown(1000);
+			});
+
+            $("#clearQueue").click( function() {
+				$("#box").clearQueue(); // won't clear the currently running effect.
+            });
+
+            $("#reset").click( function() {
+				location.reload();
+            });
+		});
+	</script>
+</head>
+
+<body>
+    <input id="animate" type="button" value="Animate">
+    <input id="clearQueue" type="button" value="Clear Queue">
+    <input id="reset" type="button" value="Reset">
+
+    <div id="box"></div>
+</body>
+</html>

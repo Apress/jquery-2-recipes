@@ -1,0 +1,9 @@
+{ 
+	"employees": [
+		{"employeeName":"Jane Smith", "department":"Marketing", "salary":"$95000"},
+		{"employeeName":"John Smith", "department":"Technology", "salary":"$90000"},
+		{"employeeName":"Brian Adam", "department":"Sales", "salary":"$72000"},
+		{"employeeName":"Mary Jones", "department":"Support", "salary":"$60000"},
+		{"employeeName":"Michael Jefferson", "department":"Technology", "salary":"$85000"}
+	]
+}

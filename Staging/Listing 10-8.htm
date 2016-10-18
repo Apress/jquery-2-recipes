@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <link rel="stylesheet" href="styles/jquery-ui.min.css">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
+
+    <style>
+		.ui-progressbar { position: relative; background: lightyellow; }
+		#processingLabel { position: absolute;left: 20%; top: 2px; }
+	</style>
+
+    <script>
+		$(function() {
+            var timer = setInterval( updateProcessCompletion, 100 );
+            var processCompletion = 0;
+
+            $("#paymentProcessingStatus").progressbar({
+				change: function() {
+                    $( "#processingLabel" ).text( $("#paymentProcessingStatus").progressbar( "value" ) + "%" );
+				},
+
+				complete: function() {
+					clearInterval(timer);
+                    $( "#processingLabel" ).text( "Completed." );
+				}
+			});
+
+            function updateProcessCompletion() {
+				$("#paymentProcessingStatus").progressbar( "value", processCompletion++);
+            }
+		});
+	</script>
+</head>
+
+<body>
+    <div class="ui-widget">
+		<div id="paymentProcessingStatus" style="width:150px; height:30px; background-color:lightyellow">
+            <div id="processingLabel">
+				Started...
+            </div>
+		</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <link rel="stylesheet" href="styles/jquery-ui.min.css">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
+
+    <style>
+		#salary { width: 300px; margin: 15px; }
+    </style>
+
+    <script>
+		$(function() {
+			$("#salary").slider({
+                min: 50000,
+                max: 200000,
+                step: 2000,
+                slide: function(eventObj, uiWidget) {
+                    $("#selectedValue").text("$" + uiWidget.value);
+				}
+			});
+
+            $("#salary").slider("value", 76000);
+
+            $("#selectedValue").text("$" + $("#salary").slider("value"));
+		});
+	</script>
+</head>
+<body>
+    <div class="ui-widget">
+		Salary: <div id="salary" value="50000"></div>
+		<div id="selectedValue"></div>
+	</div>
+</body>
+</html>     

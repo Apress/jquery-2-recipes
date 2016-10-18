@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+ 
+    <script>
+ 
+              var status = "";
+           
+       try {
+                  testFunc();
+                  status = "Successful";
+              } catch (err) {
+           status = "Failed";
+              } finally {
+                  alert("DOM ready function is completed with the status: " + status);
+                  // Cleanup or reinitialization code 
+              }
+    </script>
+</head>
+
+<body></body>
+</html>

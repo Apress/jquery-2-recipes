@@ -1,0 +1,95 @@
+ns.
+Listing 12-9. Displaying employee details in the tabs.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jqWidget - Tabs</title>
+
+    <link rel="stylesheet" href="styles/jqx.base.css"/>
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jqx-all.js"></script>
+
+    <script>
+        var employeeData = { 
+			"employees":
+			[
+				{"employeeId":1, "managerId": 0, "name":"Mark Johnson", "department":"Finance", "salary":"$285,000"},
+				{"employeeId":2, "managerId": 1, "name":"Jane Smith", "department":"Marketing", "salary":"$95,000"},
+				{"employeeId":3, "managerId": 1, "name":"John Smith", "department":"Technology", "salary":"$90,000"},
+				{"employeeId":4, "managerId": 1, "name":"Brian Adam", "department":"Sales", "salary":"$72,000"},
+				{"employeeId":5, "managerId": 1, "name":"Mary Jones", "department":"Support", "salary":"$60,000"},
+				{"employeeId":6, "managerId": 3, "name":"Michael Jefferson", "department":"Technology", "salary":"$85,000"}
+			] 
+		}
+		
+        function getData() {
+            var items = [];
+
+            items.push( "<tr><th>Employee Name</th><th>Department</th><th>Salary</th></tr>" );
+
+            $.each(employeeData.employees, function( i, item ) {
+                items.push( "<tr><td>" + item.name + "</td><td>" + item.department + "</td><td>" + 
+                    item.salary + "</td></tr>" );
+            });
+
+            $("#allEmployees").empty();
+            $("#allEmployees").append("<table border='0' width='50%''>" + items.join("") + "</table>");
+        }
+
+        $(function () {
+            $('#departmentEmployees').jqxTabs({ width: 750, height: 250 });
+            
+            $('#departmentEmployees').on('selected', function (event) {
+                var item = event.args.item;
+                var selectedHeader = $('#departmentEmployees').jqxTabs('getTitleAt', item);
+                $("#msg").html("Seleted tab: " + selectedHeader);
+                
+                if (selectedHeader == "All Employees") {
+                    getData();
+                }    
+            });
+            
+            $("#msg").html("Seleted tab: " + $("li:first-child").text());
+        });
+    </script>
+</head>
+
+<body>
+    <div id='departmentEmployees'>
+        <ul style='margin-left: 20px;'>
+			<li>Finance</li>
+            <li>Marketing</li>
+            <li>Sales</li>
+            <li>Support</li>
+            <li>Technology</li>
+            <li>All Employees</li>
+        </ul>
+        
+        <!--  Content for 1st Tab -->
+        <!--  Content can have any valid html structure / element -->
+        <div>Mark Johnson</div>
+        
+        <!--  Content for 2nd Tab -->
+        <div>Jane Smith</div>
+        
+        <!--  Content for 3rd Tab -->
+        <div>Brian Adam</div>
+        
+        <!--  Content for 4th Tab -->
+        <div>Mary Jones</div>
+        
+        <!--  Content for 5th Tab -->
+        <div>
+            John Smith<br>
+            Michael Jefferson
+        </div>
+        
+        <!--  Content for 6th Tab -->
+        <div id="allEmployees"></div>
+    </div><br>
+    
+    <div id="msg"></div>
+</body>
+</html>

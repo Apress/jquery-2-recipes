@@ -1,0 +1,14 @@
+<Employees>
+    <Employee>
+        <Name>John Doe</Name>
+        <Department>Sales</Department>
+        <DateOfJoining>09/12/2001</DateOfJoining>
+        <Salary>75000</Salary>
+    </Employe> 
+    <Employee>
+        <Name>Jane Doe</Name>
+        <Department>Technology</Department>
+        <DateOfJoining>09/12/1998</DateOfJoining>
+        <Salary>85000</Salary>
+    </Employe> 
+</Employees>

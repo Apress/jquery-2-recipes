@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="styles/jquery.mobile-1.4.3.min.css" />
+      
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jquery.mobile-1.4.3.min.js"></script>
+</head>
+
+<body>
+    <div data-role="page">
+        <div data-role="header">
+			<h1>Departments</h1>
+		</div>
+
+        <div data-role="main" class="ui-content">
+            <ul data-role="listview" class="ui-alt-icon" data-count-theme="b" data-autodividers="true" data-inset="true" 
+                data-filter="true" data-filter-theme="b" data-filter-placeholder="Search departments">
+     
+                <li  data-icon="arrow-r">
+                    <a href="#">
+						<h3>Infrastructure</h3>
+						<p>Responsible for hardware needs of the organization.</p>
+						<p class="ui-li-aside"><strong>Pending Tickets: 6</strong></p>
+                    </a>
+                </li>
+    
+                <li data-icon="arrow-r"><a href="#">Sales <span class="ui-li-count">5</span></a></li>
+                <li data-icon="arrow-r"><a href="#">Support <span class="ui-li-count">3</span></a></li>
+                <li data-icon="arrow-r"><a href="#">Marketing <span class="ui-li-count">10</span></a></li>
+                <li data-icon="arrow-r"><a href="#">Technology <span class="ui-li-count">8</span></a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

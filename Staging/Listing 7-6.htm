@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    
+	<script>
+        var processFunc = function(eventObj) {
+            var message = 	"User Role: " + eventObj.data.userRole + 
+							"<br>Department: " + eventObj.data.department;
+
+            $("#message").html(message);
+        }
+                 
+        $(function() {
+            $("#btnSubmit").on("click", {"userRole" : "Admin", "department":"IT"}, processFunc);
+            $("#txtName").on("change", {"userRole" : "Certifier", "department":"Sales"}, processFunc);
+        });
+    </script>
+</head>
+<body>
+    Name: <input id="txtName" type="text"><br><br>
+
+    <button id="btnSubmit">Submit</button>
+
+    <div id="message"></div>
+</body>
+</html>

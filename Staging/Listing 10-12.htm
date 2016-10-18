@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <link rel="stylesheet" href="styles/jquery-ui.min.css">
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
+
+    <style>
+		form { border:3px double green; width: 500px; padding-left: 10px; padding-right: 10px;
+             padding-bottom: 10px; background-color: lightyellow;}
+
+		label { float:left; display:block; width: 175px; font-size: 14px;}
+
+		.ui-button-text { font-size: 12px; }
+
+		#txtAge { width:25px; }
+		#txtSalary { width:90px; }
+		#txtHireDate { width:120px; }
+	</style>
+
+    <script>
+		$(function(){
+            $("input").focus(function() {
+				$(this).css("background-color", "lightcyan");
+			});
+
+            $("input").blur(function() {
+                $(this).css("background-color", "white");
+			});
+
+            $("#txtDepartment").autocomplete();
+
+            $("#txtAge").spinner({
+				min:18,
+				max:70
+			});
+
+            $( "#txtHireDate" ).datepicker({
+				maxDate: "+0D",
+			});
+
+            // Get Department names from the server
+            $.ajax({
+				type: "GET", 
+				url: "departments.json",
+				dataType: "json",
+				success: getDepartmentNames, 
+				error: reportError
+			});
+
+            $('#btnCreateNew').button();
+
+            $("#btnCreateNew").click(function (eventObj) {
+				eventObj.preventDefault();
+
+				$.ajax({
+					type: "POST",
+                    url: "createEmployee.json",
+                    data: $("#frmNewEmployee").serializeArray(),
+                    dataType: "json",
+                    success: getProcessStatus,
+                    error: reportError
+				});
+			});
+		});
+
+		function getProcessStatus(returnedData, status) {
+			$("#statusMessage").append("Create New Employee Record Status: " + returnedData.status); 
+		}
+
+		function reportError(request, status, errorMsg) {
+			$("#statusMessage").append("Status: " + status + "<br>Error Message: " + errorMsg);
+        }
+
+		function getDepartmentNames(returnedData, status) {
+            var deptArray = new Array();
+
+            $.each(returnedData.departments, function(obj, currentElement){
+				deptArray.push(currentElement.departmentName); 
+			});
+
+            $("#txtDepartment").autocomplete({source: deptArray});
+		}    
+	</script>
+</head>
+<body>
+    <form id="frmNewEmployee" class="ui-widget ui-corner-all">
+		<h4 class="ui-widget-header" style="margin-top:5px">New Employee Record</h4>
+		<label for="txtEmployeeName">Employee's Name:</label>
+		<input type="text" id="txtEmployeeName" name="txtEmployeeName" placeholder="LastName, FirstName" size="30"><br>
+
+		<label for="txtDepartment">Department Name:</label>
+		<input type="text" id="txtDepartment" name="txtDepartment"><br>
+
+		<label for="txtAge">Age:</label>
+		<input type="text" id="txtAge" name="txtAge" value="21"><br>
+
+		<label for="txtSalary">Salary:</label>
+		<input type="text" id="txtSalary" name="txtSalary"><br>
+
+		<label for="txtHireDate">Hire Date:</label>
+		<input type="text" id="txtHireDate" name="txtHireDate"><br>
+
+		<br><button id="btnCreateNew">Create New Employee Record</button>
+    </form><br><br>
+    
+	<div id="statusMessage"></div>
+</body>
+</html>

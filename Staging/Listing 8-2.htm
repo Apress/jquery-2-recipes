@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <script src="scripts/jquery-2.1.0.min.js"></script>	
+    
+	<style>
+		label {
+			color: green;
+            font-size: 20px;
+		}
+
+		div {
+            border:3px double green;
+            height:60px;
+            width:60px;
+            border-style:solid;
+            background-color:lightgreen;
+		}
+	</style>
+
+    <script>
+		function startFunc() {
+			$("#lblMessage").html("Toggle effect has started.");
+		}
+
+		function completeFunc() {
+            $("#lblMessage").html("Toggle effect has completed.");
+		}
+
+		$(function() {
+            $("#btnToggle").click(function () {
+				var options = {duration:2000, 
+                              easing:"linear", 
+                              start: startFunc,
+                              complete: completeFunc 
+                             };
+
+				$("div").toggle(options);
+			});
+		});
+	</script>
+</head>
+
+<body>
+    <div></div><br><br>
+    
+	<button id="btnToggle">Toggle</button><br><br>
+    <label id="lblMessage"></label>
+</body>
+</html>

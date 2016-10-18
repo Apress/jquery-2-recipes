@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script src="scripts/jquery-2.1.0.min.js"></script>
+   
+	<style>
+		.label {
+			width:150px;
+		}
+		.input {
+			width: 500px;
+		}
+		.highlight {
+			border: 3px dotted red;
+			background-color: yellow;
+		}
+	</style>
+   
+	<script>
+		$(function(){
+			$("#chkShippingAddress").click(function (){
+				if ($(this).prop("checked")) {
+					$("#shippingAddress").append($(".billingAddress").clone());
+				} else {
+					$("#shippingAddress > .billingAddress").remove();
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	Billing Address:
+	<div class="billingAddress">
+        <div class="label">Name: </div>
+        <div class="text"><input type="text"></div><br>
+        <div class="label">Address: </div>
+        <div class="text"><input type="text"></div>
+	</div><br>
+	
+	Shipping Address same as Billing Address: <input id="chkShippingAddress" type="checkbox"><br><br>
+	
+	Shipping Address:
+	<div id="shippingAddress"></div>
+</body>
+</html>

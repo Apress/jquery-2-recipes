@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="styles/jquery.mobile-1.4.3.min.css" />
+      
+    <script type="text/javascript" src="scripts/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.mobile-1.4.3.min.js"></script>
+</head>
+
+<body>
+    <!--  Page 1 -->
+    <div data-role="page" id="homePage">
+        <div data-role="header">
+			<h1>Home Page</h1>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <a href="#myDialog" class="ui-btn ui-btn-b ui-overlay-shadow ui-corner-all ui-icon-arrow-r ui-btn-icon-right" data-rel="dialog">
+                Display Dialog Page</a>
+		</div>
+
+        <div data-role="footer" data-position="fixed">
+			<h1>Page Footer</h1>
+        </div>
+	</div>
+      
+    <!--  Page 2 -->
+    <div data-role="page" id="myDialog" data-close-btn="right">
+        <div data-role="header">
+			<h1>Dialog Header</h1>
+		</div>
+
+        <div data-role="main" class="ui-content">
+            Some information ...<br>
+            ....<br>
+            <a href="#" data-rel="back" class="ui-btn ui-btn-b ui-btn-inline ui-overlay-shadow ui-corner-all">Close</a>
+		</div>
+
+        <div data-role="footer" data-position="fixed">
+			<h1>Dialog Footer</h1>
+        </div>
+    </div>
+</body>
+</html>
